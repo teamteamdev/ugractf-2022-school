@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <title>DIR-825ACG1 - Admin Home Page</title>
+        <style>
+         html {
+             background: #49e;
+             font-family: Arial, sans-serif;
+             color: white;
+         }
+         h1 {
+             border-bottom: 1px solid;
+         }
+         .sidebar {
+             float: left;
+             color: black;
+             width: 100px;
+             height: 500px;
+             background: white;
+             padding: 10px;
+             margin: 10px;
+         }
+         .content {
+
+         }
+         .login form span {
+             display: inline-block;
+             width: 100px;
+             margin-bottom: 10px;
+         }
+         table th, td {
+             text-align: left;
+             border: 1px solid;
+         }
+        </style>
+    </head>
+    <div align="right"><sup><u>English</u></sup></div>
+    <h1>DIR-825ACG1 - Admin Page</h1>
+    <body>
+        <div class="sidebar">
+            <p>Configure your router via this easy to access and use WEB administration page.</p>
+            <p>Consult your device manual for further instructions.</p>
+        </div>
+        <div class="content">
+            <h4>System Status Information</h4>
+            <table cellspacing="0">
+                <tr><th>Power</th><td>On</td></tr>
+                <tr><th>Current user</th><td>Admin</td></tr>
+                <tr><th>Router IP</th><td>192.168.1.1</td></tr>
+                <tr><th>Network Speed</th><td>100 Mbps</td></tr>
+            </table>
+            <h4>Connected Deivces</h4>
+            <table cellspacing="0">
+                <tr>
+                    <th>Hostname</th>
+                    <th>IP address</th>
+                    <th>Status</th>
+                </tr>
+                {% for d in devices %}
+                <tr>
+                    <td>{{d.hostname}}</td>
+                    <td>{{d.ip}}</td>
+                    <td>{{d.status}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <br>
+            <button onclick="alert('System going to maintenance now')">Reboot</button>
+        </div>
+    </body>
+</html>
