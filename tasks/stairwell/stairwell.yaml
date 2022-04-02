@@ -1,0 +1,13 @@
+category:  osint
+points:    300
+title:     Лестница
+author:    kalan
+description: >
+    <p>Как всегда, только один вопрос: <em>где это?</em></p>
+    <p>При решении вас спросят одноразовые коды или, как их <em>тогда</em> было принято называть, шифры — у вас их есть 8 штук.</p>
+generator: ./generator.py
+daemon:
+    exec: kyzylborda-docker-compose-daemon
+    cwd: app
+    socket: ./stairwell.sock
+    socket_type: http

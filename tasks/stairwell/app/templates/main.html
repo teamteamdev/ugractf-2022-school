@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+            <title>Загадка про лѣстницу</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Old+Standard+TT&family=Oranienbaum&display=swap"
+              rel="stylesheet">
+        <style>
+            body { font-family: 'Oranienbaum', serif;
+                   background-image: url('/static/paper.png');
+                   font-size: 30px;
+                   color: black;
+                   max-width: 860px;
+                   margin: 0 auto;
+                   padding: 2em; 
+                   position: relative }
+            h1 { font-weight: normal; font-family: 'Oswald', sans-serif; text-transform: uppercase; text-decoration: underline; 
+                 margin: 0 0 0.25em; font-size: 250%; }
+            input { font: inherit; font-family: 'Oswald', sans-serif; background: transparent }
+            input[type=text] { border: 2px solid black; }
+            input[type=submit] { border: none; background: linear-gradient(#ab6a2a, #5f3310); padding: 0.25em 0.5em;
+                                 border-radius: 0.25em; text-shadow: 0.5px 0.5px 2px #FFF9; }
+            input[type=submit]:active { background: linear-gradient(#5f3310, #ab6a2a); }
+
+            form { border-top: 5px solid black; }
+            h3 { font-weight: normal; font-family: 'Oswald', sans-serif; letter-spacing: 3px; text-decoration: underline; 
+                 font-size: 75%; position: absolute; right: 0;
+                 transform: translate(100%) rotate(90deg); transform-origin: top left; }
+            
+            .i { font-family: 'Old Standard TT', serif; font-size: 75%; }
+            .i strong { font-family: 'Oswald', sans-serif; font-weight: normal; }
+            .i em { font-style: normal; text-decoration: underline; }
+            strong.s { font-family: 'Oswald', sans-serif; font-weight: normal; }
+            
+            .x { display: inline-block; width: 0.75em }
+        </style>
+    </head>
+    <body>
+        {% if status %}
+            <h1>Отвѣтъ на Вашъ купонъ.</h1>
+            {% if status == "flag" %}
+                <p><strong class="s">Отвѣтъ вѣрный!</strong></p>
+                <p>Флагъ: <strong class="s">{{ flag }}</strong></p>
+            {% elif status == "answer-wrong" %}
+                <p><strong class="s">Отвѣтъ невѣрный!</strong> Предлагаемъ Вамъ направить вѣрный отвѣтъ въ другом купонѣ.</p>
+            {% elif status == "answer-invalid" %}
+                <p><strong class="s">Отвѣтъ невѣрнаго формата!</strong> Вы гдѣ-то допустили недоразумѣніе.
+                Вы можете использовать Вашъ одноразовый шифръ повторно въ другом купонѣ.</p>
+            {% elif status == "code-used" %}
+                <p><strong class="s">Одноразовый шифръ использован повторно!</strong> Предлагаемъ Вамъ направить отвѣтъ въ другом купонѣ, используя одноразовый шифръ, не использованный въ другихъ купонахъ. Если такихъ шифровъ не осталось, значитъ, провѣрить Вашъ отвѣтъ Вамъ не судьба.</p>
+            {% elif status == "code-wrong" %}
+                <p><strong class="s">Одноразовый шифръ невѣрный!</strong> Предлагаемъ Вамъ направить вѣрный отвѣтъ въ другом купонѣ, используя корректный одноразовый шифръ.</p>
+            {% endif %}
+            <form method="get" action=".">
+                <p><label for="submit"></label><input type="submit" value="Назадъ" />
+            </form>
+        {% else %}
+        <h1>Загадка про лѣстницу.</h1>
+        <p>Представьте себѣ: 2022 годъ, Санктъ-Петербургъ. Въ Ваши руки попалъ причудливый дагерротипъ. Вотъ онъ:</p>
+        <p><img src="/static/daguerrotype.jpg" style="width: 100%">
+        <p>Загадка заключается въ слѣдующемъ. <strong class="s">Гдѣ, съ точностью до двадцати пяти метровъ, была произведена фотосъёмка даннаго дагерротипа?</strong></p>
+        <h3>Отрывной КУПОНЪ.</h3>
+        <form method="post" action="./check">
+            <p class="i">Предоставьте отвѣтъ на загадку, используя этотъ <strong>купонъ</strong>. Широту, а также долготу слѣдуетъ
+                       представить въ видѣ десятичной дроби съ точкой въ качествѣ раздѣлителя.</p>
+            <p class="i"><strong>Примѣчаніе.</strong> Долготу слѣдуетъ разсчитывать отъ <em>Пулковскаго</em> меридіана.</p>
+            <p><label for="lat">Широта:</label>
+               <input type="text" id="lat" name="lat" value="" size="8" /> град. <span class="x"></span>
+               <label for="lon">Долгота:</label>
+               <input type="text" id="lon" name="lon" value="" size="8" /> град.
+            <p><label for="code">Одноразовый шифръ:</label>
+               <input type="text" id="code" name="code" value="" size="56" />
+            <p><label for="submit"></label><input type="submit" value="Направить КУПОНЪ на провѣрку" />
+        </form>
+        {% endif %}
+    </body>
+</html>
+
