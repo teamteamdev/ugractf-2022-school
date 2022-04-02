@@ -4,4 +4,4 @@ RUN pip install gunicorn
 WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
-CMD ["gunicorn", "-b", "unix:/tmp/cacaptcha.sock", "server:make_app()", "--worker-class", "aiohttp.GunicornWebWorker"]
+CMD ["gunicorn", "-b", "unix:/tmp/sacredplace.sock", "server:make_app()", "--worker-class", "aiohttp.GunicornWebWorker"]
