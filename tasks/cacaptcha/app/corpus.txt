@@ -1,0 +1,3532 @@
+To open KRunner in Plasma, you can either right-click the desktop and press "run command", or you can use the default keybindings, Alt+Space or Alt+F2. In some workspaces such as a blank desktop, starting to type will automatically bring up KRunner. Plasma 5 does not contain default way to specify krunner search only by active window titles. Following approaches are used to work around this issue.
+Full list of windows with search by titles
+
+This approach will require xdotool.
+
+    Go to System Settings > Workspace > Shortcuts > Custom Shortcuts.
+    Create new Global shortcut -> Command/URL (by right click)
+    Tick the checkbox to the right of the name.
+    In Trigger tab select the desired key combination.
+    In Action tab type /usr/local/bin/krunner-search-by-windows.sh
+
+Fontconfig is a library designed to provide a list of available fonts to applications, and also for configuration for how fonts get rendered. The FreeType library renders the fonts, based on this configuration. The freetype2 font rendering packages on Arch Linux include the bytecode interpreter (BCI) enabled for better font rendering especially with an LCD monitor. See #Fontconfig configuration and Font configuration/Examples.
+
+Note:
+
+    The 50-user.conf preset need to be enabled to make the user configuration take effect, and the 51-local.conf preset is for the global configuration. Check the #Presets section to know how to enable these presets.
+    Configuration files and directories: ~/.fonts.conf/, ~/.fonts.conf.d/ and ~/.fontconfig/*.cache-* are deprecated and will not be read by default in the future versions of the package. New paths are $XDG_CONFIG_HOME/fontconfig/fonts.conf, $XDG_CONFIG_HOME/fontconfig/conf.d/NN-name.conf and $XDG_CACHE_HOME/fontconfig/*.cache-* respectively. If using the second location, make sure the naming is valid (where NN is a two digit number like 00, 10, or 99).
+
+he autohinter attempts to do automatic hinting and disregards any existing hinting information. Originally it was the default because TrueType2 fonts were patent-protected but now that these patents have expired there is very little reason to use it. It does work better with fonts that have broken or no hinting information but it will be strongly sub-optimal for fonts with good hinting information. Generally common fonts are of the later kind so autohinter will not be useful. Autohinter is disabled by default. To enable it:
+
+e assembler transforms the sequence of controller expressions for a
+machine into a corresponding list of machine instructions, each with its
+execution procedure. Overall, the assembler is much like the evaluators
+we studied in Chapter 4—there is an input language (in this case, the
+register-machine language) and we must perform an appropriate action
+for each type of expression in the language.
+e technique of producing an execution procedure for each in-
+struction is just what we used in Section 4.1.7 to speed up the evaluator
+by separating analysis from runtime execution. As we saw in Chapter 4,
+much useful analysis of Scheme expressions could be performed with-
+out knowing the actual values of variables. Here, analogously, much
+useful analysis of register-machine-language expressions can be per-
+formed without knowing the actual contents of machine registers. For
+example, we can replace references to registers by pointers to the reg-
+ister objects, and we can replace references to labels by pointers to the
+place in the instruction sequence that the label designates.
+Before it can generate the instruction execution procedures, the as-
+sembler must know what all the labels refer to, so it begins by scanning
+the controller text to separate the labels from the instructions. As it
+scans the text, it constructs both a list of instructions and a table that
+associates each label with a pointer into that list. en the assembler
+augments the instruction list by inserting the execution procedure for
+each instruction
+
+(define (make-operation-exp exp machine labels operations)
+(let ((op (lookup-prim (operation-exp-op exp)
+operations))
+(aprocs
+(map (lambda (e)
+(make-primitive-exp e machine labels))
+(operation-exp-operands exp))))
+(lambda ()
+(apply op (map (lambda (p) (p)) aprocs)))))
+e syntax of operation expressions is determined by
+(define (operation-exp? exp)
+(and (pair? exp) (tagged-list? (car exp) 'op)))
+(define (operation-exp-op operation-exp)
+(cadr (car operation-exp)))
+(define (operation-exp-operands operation-exp)
+(cdr operation-exp))
+
+[   133.487]    ABI class: X.Org Video Driver, version 25.2
+[   133.487] (II) LoadModule: "modesetting"
+[   133.487] (II) Loading /usr/lib/xorg/modules/drivers/modesetting_drv.so
+[   133.487] (II) Module modesetting: vendor="X.Org Foundation"
+[   133.488]    compiled for 1.21.1.3, module version = 1.21.1
+[   133.488]    Module class: X.Org Video Driver
+[   133.488]    ABI class: X.Org Video Driver, version 25.2
+[   133.488] (II) LoadModule: "fbdev"
+[   133.488] (WW) Warning, couldn't open module fbdev
+[   133.488] (EE) Failed to load module "fbdev" (module does not exist, 0)
+[   133.488] (II) LoadModule: "vesa"
+[   133.488] (II) Loading /usr/lib/xorg/modules/drivers/vesa_drv.so
+[   133.488] (II) Module vesa: vendor="X.Org Foundation"
+[   133.488]    compiled for 1.21.1.1, module version = 2.5.0
+[   133.488]    Module class: X.Org Video Driver
+[   133.488]    ABI class: X.Org Video Driver, version 25.2
+[   133.488] (II) intel: Driver for Intel(R) Integrated Graphics Chipsets:
+    i810, i810-dc100, i810e, i815, i830M, 845G, 854, 852GM/855GM, 865G,
+    915G, E7221 (i915), 915GM, 945G, 945GM, 945GME, Pineview GM,
+    Pineview G, 965G, G35, 965Q, 946GZ, 965GM, 965GME/GLE, G33, Q35, Q33,
+    GM45, 4 Series, G45/G43, Q45/Q43, G41, B43
+[   133.488] (II) intel: Driver for Intel(R) HD Graphics
+[   133.488] (II) intel: Driver for Intel(R) Iris(TM) Graphics
+[   133.488] (II) intel: Driver for Intel(R) Iris(TM) Pro Graphics
+[   133.488] (II) modesetting: Driver for Modesetting Kernel Drivers: kms
+[   133.488] (II) VESA: driver for VESA chipsets: vesa
+[   133.509] (II) intel(0): Using Kernel Mode Setting driver: i915, version 1.6.0 20201103
+[   133.509] (II) intel(0): SNA compiled from 2.99.917-916-g31486f40
+[   133.525] (WW) Falling back to old probe method for modesetting
+[   133.526] (--) intel(0): Integrated Graphics Chipset: Intel(R) HD Graphics
+[   133.526] (--) intel(0): CPU: x86-64, sse2, sse3, ssse3, sse4.1, sse4.2, avx, avx2; using a maximum of 4 threads
+[   133.526] (II) intel(0): Creating default Display subsection in Screen section
+    "Default Screen Section" for depth/fbbpp 24/32
+[   133.526] (==) intel(0): Depth 24, (--) framebuffer bpp 32
+[   133.526] (==) intel(0): RGB weight 888
+[   133.526] (==) intel(0): Default visual is TrueColor
+[   133.526] (II) intel(0): Output eDP1 has no monitor section
+[   133.526] (**) intel(0): Found backlight control interface intel_backlight (type 'raw') for output eDP1
+[   133.526] (II) intel(0): Enabled output eDP1
+[   133.526] (II) intel(0): Output DP1 has no monitor section
+[   133.526] (II) intel(0): Enabled output DP1
+[   133.526] (II) intel(0): Output DP2 has no monitor section
+[   133.526] (II) intel(0): Enabled output DP2
+[   133.526] (--) intel(0): Using a maximum size of 256x256 for hardware cursors
+[   133.526] (II) intel(0): Output VIRTUAL1 has no monitor section
+[   133.526] (II) intel(0): Enabled output VIRTUAL1
+[   133.527] (--) intel(0): Output eDP1 using initial mode 3000x2000 on pipe 0
+[   133.527] (==) intel(0): TearFree enabled
+[   133.527] (==) intel(0): Using gamma correction (1.0, 1.0, 1.0)
+[   133.527] (==) intel(0): DPI set to (96, 96)
+[   133.527] (II) Loading sub module "dri3"
+[   133.527] (II) LoadModule: "dri3"
+[   133.527] (II) Module "dri3" already built-in
+[   133.527] (II) Loading sub module "dri2"
+[   133.527] (II) LoadModule: "dri2"
+[   133.527] (II) Module "dri2" already built-in
+[   133.527] (II) Loading sub module "present"
+[   133.527] (II) LoadModule: "present"
+[   133.527] (II) Module "present" already built-in
+[   133.527] (II) UnloadModule: "modesetting"
+[   133.527] (II) Unloading modesetting
+[   133.527] (II) UnloadModule: "vesa"
+[   133.527] (II) Unloading vesa
+[   133.527] (II) intel(0): SNA initialized with Coffeelake (gen9) backend
+[   133.527] (==) intel(0): Backing store enabled
+[   133.527] (==) intel(0): Silken mouse enabled
+[   133.527] (II) intel(0): HW Cursor enabled
+[   133.527] (==) intel(0): DPMS enabled
+[   133.527] (==) intel(0): Display hotplug detection enabled
+[   133.527] (II) intel(0): [DRI2] Setup complete
+[   133.527] (II) intel(0): [DRI2]   DRI driver: i965
+[   133.527] (II) intel(0): [DRI2]   VDPAU driver: va_gl
+[   133.527] (II) intel(0): direct rendering: DRI2 DRI3 enabled
+[   133.527] (II) intel(0): hardware support for Present enabled
+[   133.527] (II) Initializing extension Generic Event Extension
+[   133.527] (II) Initializing extension SHAPE
+[   133.527] (II) Initializing extension MIT-SHM
+[   133.527] (II) Initializing extension XInputExtension
+[   133.527] (II) Initializing extension XTEST
+[   133.528] (II) Initializing extension BIG-REQUESTS
+[   133.528] (II) Initializing extension SYNC
+[   133.528] (II) Initializing extension XKEYBOARD
+[   133.528] (II) Initializing extension XC-MISC
+[   133.528] (II) Initializing extension SECURITY
+[   133.528] (II) Initializing extension XFIXES
+[   133.528] (II) Initializing extension RENDER
+[   133.528] (II) Initializing extension RANDR
+[   133.528] (II) Initializing extension COMPOSITE
+[   133.528] (II) Initializing extension DAMAGE
+[   133.528] (II) Initializing extension MIT-SCREEN-SAVER
+[   133.528] (II) Initializing extension DOUBLE-BUFFER
+[   133.529] (II) Initializing extension RECORD
+[   133.529] (II) Initializing extension DPMS
+[   133.529] (II) Initializing extension Present
+[   133.529] (II) Initializing extension DRI3
+[   133.529] (II) Initializing extension X-Resource
+[   133.529] (II) Initializing extension XVideo
+[   133.529] (II) Initializing extension XVideo-MotionCompensation
+[   133.529] (II) Initializing extension GLX
+[   133.536] (II) AIGLX: Loaded and initialized i965
+[   133.536] (II) GLX: Initialized DRI2 GL provider for screen 0
+[   133.536] (II) Initializing extension XFree86-VidModeExtension
+[   133.536] (II) Initializing extension XFree86-DGA
+[   133.536] (II) Initializing extension XFree86-DRI
+[   133.536] (II) Initializing extension DRI2
+[   133.541] (II) intel(0): switch to mode 3000x2000@60.0 on eDP1 using pipe 0, position (0, 0), rotation normal, reflection none
+[   133.551] (II) intel(0): Setting screen physical size to 793 x 529
+[   133.599] (II) config/udev: Adding input device Power Button (/dev/input/event2)
+[   133.599] (**) Power Button: Applying InputClass "libinput keyboard catchall"
+[   133.599] (II) LoadModule: "libinput"
+[   133.599] (II) Loading /usr/lib/xorg/modules/input/libinput_drv.so
+[   133.600] (II) Module libinput: vendor="X.Org Foundation"
+[   133.600]    compiled for 1.21.1.3, module version = 1.2.1
+[   133.600]    Module class: X.Org XInput Driver
+[   133.600]    ABI class: X.Org XInput driver, version 24.4
+[   133.600] (II) Using input driver 'libinput' for 'Power Button'
+[   133.600] (**) Power Button: always reports core events
+[   133.600] (**) Option "Device" "/dev/input/event2"
+[   133.601] (II) event2  - Power Button: is tagged by udev as: Keyboard
+[   133.601] (II) event2  - Power Button: device is a keyboard
+[   133.601] (II) event2  - Power Button: device removed
+[   133.649] (**) Option "config_info" "udev:/sys/devices/LNXSYSTM:00/LNXPWRBN:00/input/input2/event2"
+[   133.649] (II) XINPUT: Adding extended input device "Power Button" (type: KEYBOARD, id 6)
+[   133.649] (II) event2  - Power Button: is tagged by udev as: Keyboard
+[   133.649] (II) event2  - Power Button: device is a keyboard
+[   133.650] (II) config/udev: Adding input device Video Bus (/dev/input/event5)
+[   133.650] (**) Video Bus: Applying InputClass "libinput keyboard catchall"
+[   133.650] (II) Using input driver 'libinput' for 'Video Bus'
+[   133.650] (**) Video Bus: always reports core events
+[   133.650] (**) Option "Device" "/dev/input/event5"
+[   133.650] (II) event5  - Video Bus: is tagged by udev as: Keyboard
+[   133.650] (II) event5  - Video Bus: device is a keyboard
+[   133.650] (II) event5  - Video Bus: device removed
+[   133.702] (**) Option "config_info" "udev:/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/LNXVIDEO:00/input/input5/event5"
+[   133.702] (II) XINPUT: Adding extended input device "Video Bus" (type: KEYBOARD, id 7)
+[   133.704] (II) event5  - Video Bus: is tagged by udev as: Keyboard
+[   133.704] (II) event5  - Video Bus: device is a keyboard
+[   133.705] (II) config/udev: Adding input device Power Button (/dev/input/event0)
+[   133.705] (**) Power Button: Applying InputClass "libinput keyboard catchall"
+[   133.705] (II) Using input driver 'libinput' for 'Power Button'
+[   133.705] (**) Power Button: always reports core events
+[   133.705] (**) Option "Device" "/dev/input/event0"
+[   133.706] (II) event0  - Power Button: is tagged by udev as: Keyboard
+[   133.706] (II) event0  - Power Button: device is a keyboard
+[   133.706] (II) event0  - Power Button: device removed
+[   133.741] (**) Option "config_info" "udev:/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0C:00/input/input0/event0"
+[   133.741] (II) XINPUT: Adding extended input device "Power Button" (type: KEYBOARD, id 8)
+[   133.743] (II) event0  - Power Button: is tagged by udev as: Keyboard
+[   133.743] (II) event0  - Power Button: device is a keyboard
+[   133.744] (II) config/udev: Adding input device Lid Switch (/dev/input/event1)
+[   133.744] (II) No input driver specified, ignoring this device.
+[   133.744] (II) This device may have been added with another device file.
+[   133.746] (II) config/udev: Adding input device USB camera: USB camera (/dev/input/event4)
+[   133.746] (**) USB camera: USB camera: Applying InputClass "libinput keyboard catchall"
+[   133.746] (II) Using input driver 'libinput' for 'USB camera: USB camera'
+[   133.746] (**) USB camera: USB camera: always reports core events
+[   133.746] (**) Option "Device" "/dev/input/event4"
+[   133.748] (II) event4  - USB camera: USB camera: is tagged by udev as: Keyboard
+[   133.748] (II) event4  - USB camera: USB camera: device is a keyboard
+[   133.748] (II) event4  - USB camera: USB camera: device removed
+[   133.809] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-7/1-7:1.0/input/input4/event4"
+[   133.809] (II) XINPUT: Adding extended input device "USB camera: USB camera" (type: KEYBOARD, id 9)
+[   133.811] (II) event4  - USB camera: USB camera: is tagged by udev as: Keyboard
+[   133.811] (II) event4  - USB camera: USB camera: device is a keyboard
+[   133.813] (II) config/udev: Adding input device ELAN2604:00 04F3:3114 Mouse (/dev/input/event7)
+[   133.813] (**) ELAN2604:00 04F3:3114 Mouse: Applying InputClass "libinput pointer catchall"
+[   133.813] (II) Using input driver 'libinput' for 'ELAN2604:00 04F3:3114 Mouse'
+[   133.813] (**) ELAN2604:00 04F3:3114 Mouse: always reports core events
+[   133.813] (**) Option "Device" "/dev/input/event7"
+[   133.815] (II) event7  - ELAN2604:00 04F3:3114 Mouse: is tagged by udev as: Mouse Pointingstick
+[   133.815] (II) event7  - ELAN2604:00 04F3:3114 Mouse: device is a pointer
+[   133.816] (II) event7  - ELAN2604:00 04F3:3114 Mouse: device removed
+[   133.876] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:15.0/i2c_designware.0/i2c-0/i2c-ELAN2604:00/0018:04F3:3114.0001/input/input13/event7"
+[   133.876] (II) XINPUT: Adding extended input device "ELAN2604:00 04F3:3114 Mouse" (type: MOUSE, id 10)
+[   133.876] (**) Option "AccelerationScheme" "none"
+[   133.876] (**) ELAN2604:00 04F3:3114 Mouse: (accel) selected scheme none/0
+[   133.876] (**) ELAN2604:00 04F3:3114 Mouse: (accel) acceleration factor: 2.000
+[   133.876] (**) ELAN2604:00 04F3:3114 Mouse: (accel) acceleration threshold: 4
+[   133.878] (II) event7  - ELAN2604:00 04F3:3114 Mouse: is tagged by udev as: Mouse Pointingstick
+[   133.879] (II) event7  - ELAN2604:00 04F3:3114 Mouse: device is a pointer
+[   133.881] (II) config/udev: Adding input device ELAN2604:00 04F3:3114 Mouse (/dev/input/mouse0)
+[   133.881] (II) No input driver specified, ignoring this device.
+[   133.881] (II) This device may have been added with another device file.
+[   133.882] (II) config/udev: Adding input device ELAN2604:00 04F3:3114 Touchpad (/dev/input/event10)
+[   133.882] (**) ELAN2604:00 04F3:3114 Touchpad: Applying InputClass "libinput touchpad catchall"
+[   133.882] (II) Using input driver 'libinput' for 'ELAN2604:00 04F3:3114 Touchpad'
+[   133.882] (**) ELAN2604:00 04F3:3114 Touchpad: always reports core events
+[   133.882] (**) Option "Device" "/dev/input/event10"
+[   133.884] (II) event10 - ELAN2604:00 04F3:3114 Touchpad: is tagged by udev as: Touchpad
+[   133.886] (II) event10 - ELAN2604:00 04F3:3114 Touchpad: device is a touchpad
+[   133.887] (II) event10 - ELAN2604:00 04F3:3114 Touchpad: device removed
+[   133.943] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:15.0/i2c_designware.0/i2c-0/i2c-ELAN2604:00/0018:04F3:3114.0001/input/input15/event10"
+[   133.943] (II) XINPUT: Adding extended input device "ELAN2604:00 04F3:3114 Touchpad" (type: TOUCHPAD, id 11)
+[   133.946] (**) Option "AccelerationScheme" "none"
+[   133.946] (**) ELAN2604:00 04F3:3114 Touchpad: (accel) selected scheme none/0
+[   133.946] (**) ELAN2604:00 04F3:3114 Touchpad: (accel) acceleration factor: 2.000
+[   133.946] (**) ELAN2604:00 04F3:3114 Touchpad: (accel) acceleration threshold: 4
+[   133.948] (II) event10 - ELAN2604:00 04F3:3114 Touchpad: is tagged by udev as: Touchpad
+[   133.951] (II) event10 - ELAN2604:00 04F3:3114 Touchpad: device is a touchpad
+[   133.952] (II) config/udev: Adding input device ELAN2604:00 04F3:3114 Touchpad (/dev/input/mouse1)
+[   133.952] (II) No input driver specified, ignoring this device.
+[   133.952] (II) This device may have been added with another device file.
+[   133.953] (II) config/udev: Adding input device 06CB:00 06CB:1A1B (/dev/input/event9)
+[   133.953] (**) 06CB:00 06CB:1A1B: Applying InputClass "libinput touchscreen catchall"
+[   133.953] (II) Using input driver 'libinput' for '06CB:00 06CB:1A1B'
+[   133.953] (**) 06CB:00 06CB:1A1B: always reports core events
+[   133.953] (**) Option "Device" "/dev/input/event9"
+[   133.955] (II) event9  - 06CB:00 06CB:1A1B: is tagged by udev as: Touchscreen
+[   133.955] (II) event9  - 06CB:00 06CB:1A1B: device is a touch device
+[   133.956] (II) event9  - 06CB:00 06CB:1A1B: device removed
+[   134.022] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:15.1/i2c_designware.1/i2c-5/i2c-06CB:00/0018:06CB:1A1B.0002/input/input16/event9"
+[   134.022] (II) XINPUT: Adding extended input device "06CB:00 06CB:1A1B" (type: TOUCHSCREEN, id 12)
+[   134.022] (**) Option "AccelerationScheme" "none"
+[   134.023] (**) 06CB:00 06CB:1A1B: (accel) selected scheme none/0
+[   134.023] (**) 06CB:00 06CB:1A1B: (accel) acceleration factor: 2.000
+[   134.023] (**) 06CB:00 06CB:1A1B: (accel) acceleration threshold: 4
+[   134.025] (II) event9  - 06CB:00 06CB:1A1B: is tagged by udev as: Touchscreen
+[   134.025] (II) event9  - 06CB:00 06CB:1A1B: device is a touch device
+[   134.026] (II) config/udev: Adding input device 06CB:00 06CB:1A1B (/dev/input/mouse2)
+[   134.026] (II) No input driver specified, ignoring this device.
+[   134.026] (II) This device may have been added with another device file.
+[   134.027] (II) config/udev: Adding input device HDA Intel PCH Headphone (/dev/input/event11)
+[   134.027] (II) No input driver specified, ignoring this device.
+[   134.027] (II) This device may have been added with another device file.
+[   134.028] (II) config/udev: Adding input device HDA Intel PCH HDMI/DP,pcm=3 (/dev/input/event12)
+[   134.028] (II) No input driver specified, ignoring this device.
+[   134.028] (II) This device may have been added with another device file.
+[   134.028] (II) config/udev: Adding input device HDA Intel PC
+
+
+(defun abbrev-suggest-show-report ()
+  "Show a buffer with the list of abbrevs you could have used.
+This shows the abbrevs you've \"missed\" because you typed the
+full text instead of the abbrevs that expand into that text."
+  (interactive)
+  (let ((totals (abbrev--suggest-get-totals))
+    (buf (get-buffer-create "*abbrev-suggest*")))
+    (set-buffer buf)
+    (erase-buffer)
+        (insert (substitute-command-keys "** Abbrev expansion usage **
+
+Below is a list of expansions for which abbrevs are defined, and
+the number of times the expansion was typed manually.  To display
+and edit all abbrevs, type \\[edit-abbrevs].\n\n"))
+    (dolist (expansion totals)
+      (insert (format " %s: %d\n" (car expansion) (cdr expansion))))
+    (display-buffer buf)))
+
+"It's like this," he said. "When you go after honey with a balloon, the
+great thing is not to let the bees know you're coming. Now, if you have
+a green balloon, they might think you were only part of the tree, and
+not notice you, and, if you have a blue balloon, they might think you
+were only part of the sky, and not notice you, and the question is:
+Which is most likely?"
+
+"Wouldn't they notice _you_ underneath the balloon?" you asked.
+
+"They might or they might not," said Winnie-the-Pooh. "You never can
+tell with bees." He thought for a moment and said: "I shall try to look
+like a small black cloud. That will deceive them."
+
+"Then you had better have the blue balloon," you said; and so it was
+decided.
+
+Well, you both went out with the blue balloon, and you took your gun
+with you, just in case, as you always did, and Winnie-the-Pooh went to a
+very muddy place that he knew of, and rolled and rolled until he was
+black all over; and then, when the balloon was blown up as big as big,
+and you and Pooh were both holding on to the string, you let go
+suddenly, and Pooh Bear floated gracefully up into the sky, and stayed
+there--level with the top of the tree and about twenty feet away from
+it.
+
+"Hooray!" you shouted.
+
+"Isn't that fine?" shouted Winnie-the-Pooh down to you. "What do I look
+like?"
+
+"You look like a Bear holding on to a balloon," you said.
+
+"Not," said Pooh anxiously, "--not like a small black cloud in a blue
+sky?"
+
+"Not very much."
+
+"Ah, well, perhaps from up here it looks different. And, as I say, you
+never can tell with bees."
+
+It was a fine spring morning in the forest as he started out. Little
+soft clouds played happily in a blue sky, skipping from time to time in
+front of the sun as if they had come to put it out, and then sliding
+away suddenly so that the next might have his turn. Through them and
+between them the sun shone bravely; and a copse which had worn its firs
+all the year round seemed old and dowdy now beside the new green lace
+which the beeches had put on so prettily. Through copse and spinney
+marched Bear; down open slopes of gorse and heather, over rocky beds of
+streams, up steep banks of sandstone into the heather again; and so at
+last, tired and hungry, to the Hundred Acre Wood. For it was in the
+Hundred Acre Wood that Owl lived.
+
+"And if anyone knows anything about anything," said Bear to himself,
+"it's Owl who knows something about something," he said, "or my name's
+not Winnie-the-Pooh," he said. "Which it is," he added. "So there you
+are."
+
+Owl lived at The Chestnuts, an old-world residence of great charm, which
+was grander than anybody else's, or seemed so to Bear, because it had
+both a knocker _and_ a bell-pull. Underneath the knocker there was a
+notice which said:
+
+                   PLES RING IF AN RNSER IS REQIRD.
+
+Underneath the bell-pull there was a notice which said:
+
+                  PLEZ CNOKE IF AN RNSR IS NOT REQID.
+
+These notices had been written by Christopher Robin, who was the only
+one in the forest who could spell; for Owl, wise though he was in many
+ways, able to read and write and spell his own name WOL, yet somehow
+went all to pieces over delicate words like MEASLES and BUTTEREDTOAST.
+
+Winnie-the-Pooh read the two notices very carefully, first from left to
+right, and afterwards, in case he had missed some of it, from right to
+left. Then, to make quite sure, he knocked and pulled the knocker, and
+he pulled and knocked the bell-rope, and he called out in a very loud
+voice, "Owl! I require an answer! It's Bear speaking." And the door
+opened, and Owl looked out.
+
+"Yes, and I wanted to ask you----"
+
+"Somebody has been keeping honey in it," said Owl.
+
+"You can keep _anything_ in it," said Pooh earnestly. "It's Very Useful
+like that. And I wanted to ask you----"
+
+"You ought to write '_A Happy Birthday_' on it."
+
+"_That_ was what I wanted to ask you," said Pooh. "Because my spelling
+is Wobbly. It's good spelling but it Wobbles, and the letters get in the
+wrong places. Would _you_ write 'A Happy Birthday' on it for me?"
+
+"It's a nice pot," said Owl, looking at it all round. "Couldn't I give
+it too? From both of us?"
+
+"No," said Pooh. "That would _not_ be a good plan. Now I'll just wash it
+first, and then you can write on it."
+
+Well, he washed the pot out, and dried it, while Owl licked the end of
+his pencil, and wondered how to spell "birthday."
+
+"Can you read, Pooh?" he asked a little anxiously. "There's a notice
+about knocking and ringing outside my door, which Christopher Robin
+wrote. Could you read it?"
+
+"Christopher Robin told me what it said, and _then_ I could."
+
+"Well, I'll tell you what _this_ says, and then you'll be able to."
+
+So Owl wrote ... and this is what he wrote:
+
+                 HIPY PAPY BTHUTHDTH THUTHDA BTHUTHDY.
+"Here I am!" squeaked Roo.
+
+"Oh, there you are."
+
+"Did you see me swimming?"
+
+Eeyore took his tail out of the water, and swished it from side to side.
+
+"As I expected," he said. "Lost all feeling. Numbed it. That's what it's
+done. Numbed it. Well, as long as nobody minds, I suppose it's all
+right."
+
+"Poor old Eeyore. I'll dry it for you," said Christopher Robin, and he
+took out his handkerchief and rubbed it up.
+
+"Thank you, Christopher Robin. You're the only one who seems to
+understand about tails. They don't think--that's what the matter with
+some of these others. They've no imagination. A tail isn't a tail to
+_them_, it's just a Little Bit Extra at the back."
+
+"Never mind, Eeyore," said Christopher Robin, rubbing his hardest. "Is
+_that_ better?"
+
+"It's feeling more like a tail perhaps. It Belongs again, if you know
+what I mean."
+
+"Hullo, Eeyore," said Pooh, coming up to them with his pole.
+
+"Hullo, Pooh. Thank you for asking, but I shall be able to use it again
+in a day or two."
+
+"Use what?" said Pooh.
+
+"What we are talking about."
+
+"I wasn't talking about anything," said Pooh, looking puzzled.
+
+
+Log in or Sign up
+Home
+Forums
+>
+Bukkit
+>
+Bukkit Help
+>
+Essentials book.txt
+
+Discussion in 'Bukkit Help' started by GodsDead, Jan 15, 2014.
+
+Thread Status:
+    Not open for further replies.
+
+    Offline
+    GodsDead
+
+        I give a book on first spawn via a newbies kit for information about the server, It was absolute hell to write and test out, the process being:
+        Edit & save>upload>reload essentials>Use a command to give kit to myself>Review
+
+        I need a much faster way to make book edits, as information needs to fit onto lines, whats the maximum character length for a book, is there an online or downloadable wysiwyg editor?
+        If not is there a way to set a word wrap/ruler in sublime text 3 or Coda2?
+        Does apending colours count as characters in the book?
+        Since it took me so long to trial and error, here's a copy of my book.txt to use as a template.
+
+        Code:
+
+        This is the book file.
+
+        This file format works similar to the info.txt, motd.txt and rules.txt
+
+        Place content in here that you would like to be used by books ingame.
+
+        You can use this content by using the book:<section> meta option in kits or item spawning.
+
+        #Bible
+        &nPirate Rules&r
+        &0
+        &c1&0 Be respectful
+        &c2&0 Be Polite
+        &c3&0 Use common sense
+        &c4&0 Mature Gameplay
+        &c5&0 No Hacking
+        &c6&0 No Begging
+        &c7&0 You &acan&0 loot
+        &0
+        Full &9/rules&r list.
+        &0
+        &nGriefprevention&r
+        &0
+        Right click with a
+        &6Golden spade&0 to
+        protect && resize
+        claims.
+        Right click with a
+        &6stick&0 to examine
+        land claims.
+        &0
+        &0
+        &0
+        &nStand in a claim to
+        &0
+        &9/t&0 Set player perm
+        &9/ut&0 Removes player
+        &9/at&0 Use buttons,
+        levers, && beds
+        &9/ct&0 Use buttons,
+        levers, beds, craft
+        containers, animals
+        &9/sc&0 Subdivide claim
+        &9/AbandonClaim&0
+        Deletes claim.
+        &9/Untrust All&0
+        Removes all perms.
+        &9/AbandonAllClaims&0
+        Deletes all of your claims.
+        &9/BuyClaim&0
+        Use money to buy
+        claim blocks.
+        &9/SellClaim&0
+        Sell claim for money.
+        &0
+        &nRanks&0
+        &0
+        &0*&f DeckHand
+        &0*&7 Sailor&0 - +1
+        &0*&9 Lieutenant&0 - VIP
+        &0*&6 Commander&0 - Admin
+        &0*&c Admiral&0 - Owner
+        &0
+        &0
+        &0
+        &0
+        &0
+        &nCommands&0
+        &0
+        &9/spawn&0 Go to spawn
+        &9/sethome&0 Set's home
+        &9/home&0 Warp home
+        &9/help&0 All Commands
+        &9/rules&0 List Rules
+        &9/afk&0 Set Away
+        &9/trade name&0 Trade
+        &9/stats&0 Basic Stats
+        &9/balance&0 Wallet
+        &0
+        &nMinecraft colors&r:
+        &0
+        &0 &&0  &1 &&1  &2 &&2  &3 &&3
+        &4 &&4  &5 &&5  &6 &&6  &7 &&7
+        &8 &&8  &9 &&9  &a &&a  &b &&b
+        &c &&c  &d &&d  &e &&e  &f &&f
+        &0
+        &&l &lBold
+        &&m &mStrike&r  &&n &nUline
+        &&o &oItalic&r  &&r &rReset
+        &0
+        &0
+        &nCredits&0
+        &0
+        &0By: &6GodsDead
+        Version: &60.2
+        &0
+        &0
+        &0
+        &0
+        &0
+        &0
+        &cwww.piratemc.com
+
+
+
+    GodsDead, Jan 15, 2014
+    #1
+    Offline
+    DuoDex
+
+        No idea. I wish there was one, though.
+
+
+    DuoDex, Jan 15, 2014
+    #2
+    Offline
+    DJ Outbased
+
+        I'm actually thinking about making one. I was thinking having this:
+            Example chat messages from a player with specified chat format
+            Example book layout for a player like you said
+        This would allow server admins to quickly make good looking chats, and book layouts (which way to many people need. Especially a good chat format).
+        If people were interested, I could try and develop such a web interface.
+
+
+    DJ Outbased, Jan 15, 2014
+    #3
+    Offline
+    SGrayMe
+
+        You don't need to reload Essentials when modifying the .txt files.
+
+        For line length assistance, go to this page
+        http://textmechanic.com/Add-Remove-Line-Breaks.html
+        And use "Wordwrap Line Breaks" every "21" characters (you may get away with every 22 or 23 characters, but 21 is more "reliable").
+
+        Color codes do not count against line length, formatting codes might or might not impact line appearance (underlines go into next line's space, bold increases width, etc).
+
+
+    SGrayMe, Jan 15, 2014
+    #4
+    Offline
+    GodsDead
+
+        DJ Outbased said: ↑
+
+            I'm actually thinking about making one. I was thinking having this:
+                Example chat messages from a player with specified chat format
+                Example book layout for a player like you said
+            This would allow server admins to quickly make good looking chats, and book layouts (which way to many people need. Especially a good chat format).
+            If people were interested, I could try and develop such a web interface.
+
+        I had the same idea, maybe this thread could start examples for other admins to start with, I actually created a basic web interface where I limit the textarea columns but would need to write some javascript to not count the color codes in the line length, So I ended up using Sublime Text 3, Editing Preferences > Settings-User and adding:
+        Code:
+
+        {
+            "rulers": [18, 24]
+        }
+
+        Since you can have 18 characters per line, the 24 adds a second rule for the average amount of colour codes I use to keep within the 18 character limit, the book is limited to 12 rows per page too.
+        Im sure it would be easy enough to edit an existing WYSIWYG editor like http://ckeditor.com/ to work with those confinements and also use the color codes.
+
+        SGrayMe said: ↑
+
+            You don't need to reload Essentials when modifying the .txt files.
+
+            For line length assistance, go to this page
+            http://textmechanic.com/Add-Remove-Line-Breaks.html
+            And use "Wordwrap Line Breaks" every "21" characters (you may get away with every 22 or 23 characters, but 21 is more "reliable").
+
+            Color codes do not count against line length, formatting codes might or might not impact line appearance (underlines go into next line's space, bold increases width, etc).
+            Click to expand...
+
+        Superb, I will give this a try! It's a shame you can't update existing books, hence the version number I added in mine!
+
+
+    GodsDead, Jan 16, 2014
+    #5
+    Offline
+    DJ Outbased
+
+        Also, another idea is to actually format the book in minecraft. Then whenever you have a result you like, use essentials book editor to use the exact same format.
+
+
+    DJ Outbased, Jan 16, 2014
+    #6
+
+(You must log in or sign up to reply here.)
+
+Thread Status:
+    Not open for further replies.
+
+Share This Page
+Tweet
+Home
+Forums
+>
+Bukkit
+>
+Bukkit Help
+>
+Bukkit Forums
+
+    Home
+    Forums
+        Members
+        Staff
+        Search Forums
+        What's New?
+    Rules
+    Docs
+    About Us
+    Get CraftBukkit
+    BukkitDev
+    Get Plugins
+
+    Terms and Rules
+
+THE FLOWER GIRL. Good enough for ye—oo. Now you know, don’t you? I’m
+come to have lessons, I am. And to pay for em too: make no mistake.
+
+HIGGINS [stupent] WELL!!! [Recovering his breath with a gasp] What do
+you expect me to say to you?
+
+THE FLOWER GIRL. Well, if you was a gentleman, you might ask me to sit
+down, I think. Don’t I tell you I’m bringing you business?
+
+HIGGINS. Pickering: shall we ask this baggage to sit down or shall we
+throw her out of the window?
+
+THE FLOWER GIRL [running away in terror to the piano, where she turns
+at bay] Ah—ah—ah—ow—ow—ow—oo! [Wounded and whimpering] I won’t be
+called a baggage when I’ve offered to pay like any lady.
+
+Motionless, the two men stare at her from the other side of the room,
+amazed.
+
+PICKERING [gently] What is it you want, my girl?
+
+THE FLOWER GIRL. I want to be a lady in a flower shop stead of selling
+at the corner of Tottenham Court Road. But they won’t take me unless I
+can talk more genteel. He said he could teach me. Well, here I am ready
+to pay him—not asking any favor—and he treats me as if I was dirt.
+
+MRS. PEARCE. How can you be such a foolish ignorant girl as to think
+you could afford to pay Mr. Higgins?
+
+THE FLOWER GIRL. Why shouldn’t I? I know what lessons cost as well as
+you do; and I’m ready to pay.
+
+HIGGINS. How much?
+
+THE FLOWER GIRL [coming back to him, triumphant] Now you’re talking! I
+thought you’d come off it when you saw a chance of getting back a bit
+of what you chucked at me last night. [Confidentially] You’d had a drop
+in, hadn’t you?
+
+HIGGINS [peremptorily] Sit down.
+
+THE FLOWER GIRL. Oh, if you’re going to make a compliment of it—
+
+HIGGINS [thundering at her] Sit down.
+
+MRS. PEARCE [severely] Sit down, girl. Do as you’re told. [She places
+the stray chair near the hearthrug between Higgins and Pickering, and
+stands behind it waiting for the girl to sit down].
+
+THE FLOWER GIRL. Ah—ah—ah—ow—ow—oo! [She stands, half rebellious,
+half bewildered].
+
+PICKERING [very courteous] Won’t you sit down?
+
+LIZA [coyly] Don’t mind if I do. [She sits down. Pickering returns to
+the hearthrug].
+
+HIGGINS. What’s your name?
+
+THE FLOWER GIRL. Liza Doolittle.
+
+HIGGINS [declaiming gravely]
+       Eliza, Elizabeth, Betsy and Bess,
+       They went to the woods to get a bird’s nes’:
+
+PICKERING. They found a nest with four eggs in it:
+
+HIGGINS. They took one apiece, and left three in it.
+
+They laugh heartily at their own wit.
+
+LIZA. Oh, don’t be silly.
+
+MRS. PEARCE. You mustn’t speak to the gentleman like that.
+
+LIZA. Well, why won’t he speak sensible to me?
+
+HIGGINS. Come back to business. How much do you propose to pay me for
+the lessons?
+
+LIZA. Oh, I know what’s right. A lady friend of mine gets French
+lessons for eighteenpence an hour from a real French gentleman. Well,
+you wouldn’t have the face to ask me the same for teaching me my own
+language as you would for French; so I won’t give more than a shilling.
+Take it or leave it.
+
+HIGGINS [walking up and down the room, rattling his keys and his cash
+in his pockets] You know, Pickering, if you consider a shilling, not as
+a simple shilling, but as a percentage of this girl’s income, it works
+out as fully equivalent to sixty or seventy guineas from a millionaire.
+
+PICKERING. How so?
+
+HIGGINS. Figure it out. A millionaire has about 150 pounds a day. She
+earns about half-a-crown.
+
+LIZA [haughtily] Who told you I only—
+
+HIGGINS [continuing] She offers me two-fifths of her day’s income for a
+lesson. Two-fifths of a millionaire’s income for a day would be
+somewhere about 60 pounds. It’s handsome. By George, it’s enormous!
+it’s the biggest offer I ever had.
+
+LIZA [rising, terrified] Sixty pounds! What are you talking about? I
+never offered you sixty pounds. Where would I get—
+
+HIGGINS. Hold your tongue.
+
+LIZA [weeping] But I ain’t got sixty pounds. Oh—
+
+MRS. PEARCE. Don’t cry, you silly girl. Sit down. Nobody is going to
+touch your money.
+
+HIGGINS. Somebody is going to touch you, with a broomstick, if you
+don’t stop snivelling. Sit down.
+
+LIZA [obeying slowly] Ah—ah—ah—ow—oo—o! One would think you was my
+father.
+
+HIGGINS. If I decide to teach you, I’ll be worse than two fathers to
+you. Here [he offers her his silk handkerchief]!
+
+LIZA. What’s this for?
+
+HIGGINS. To wipe your eyes. To wipe any part of your face that feels
+moist. Remember: that’s your handkerchief; and that’s your sleeve.
+Don’t mistake the one for the other if you wish to become a lady in a
+shop.
+
+Liza, utterly bewildered, stares helplessly at him.
+
+MRS. PEARCE. It’s no use talking to her like that, Mr. Higgins: she
+doesn’t understand you. Besides, you’re quite wrong: she doesn’t do it
+that way at all [she takes the handkerchief].
+
+LIZA [snatching it] Here! You give me that handkerchief. He give it to
+me, not to you.
+
+PICKERING [laughing] He did. I think it must be regarded as her
+property, Mrs. Pearce.
+
+MRS. PEARCE [resigning herself] Serve you right, Mr. Higgins.
+
+PICKERING. Higgins: I’m interested. What about the ambassador’s garden
+party? I’ll say you’re the greatest teacher alive if you make that
+good. I’ll bet you all the expenses of the experiment you can’t do it.
+And I’ll pay for the lessons.
+
+LIZA. Oh, you are real good. Thank you, Captain.
+
+HIGGINS [tempted, looking at her] It’s almost irresistible. She’s so
+deliciously low—so horribly dirty—
+
+LIZA [protesting extremely] Ah—ah—ah—ah—ow—ow—oooo!!! I ain’t
+dirty: I washed my face and hands afore I come, I did.
+
+PICKERING. You’re certainly not going to turn her head with flattery,
+Higgins.
+
+MRS. PEARCE [uneasy] Oh, don’t say that, sir: there’s more ways than
+one of turning a girl’s head; and nobody can do it better than Mr.
+Higgins, though he may not always mean it. I do hope, sir, you won’t
+encourage him to do anything foolish.
+
+HIGGINS [becoming excited as the idea grows on him] What is life but a
+series of inspired follies? The difficulty is to find them to do. Never
+lose a chance: it doesn’t come every day. I shall make a duchess of
+this draggletailed guttersnipe.
+
+LIZA [strongly deprecating this view of her] Ah—ah—ah—ow—ow—oo!
+
+HIGGINS [carried away] Yes: in six months—in three if she has a good
+ear and a quick tongue—I’ll take her anywhere and pass her off as
+anything. We’ll start today: now! this moment! Take her away and clean
+her, Mrs. Pearce. Monkey Brand, if it won’t come off any other way. Is
+there a good fire in the kitchen?
+
+MRS. PEARCE [protesting]. Yes; but—
+
+HIGGINS [storming on] Take all her clothes off and burn them. Ring up
+Whiteley or somebody for new ones. Wrap her up in brown paper till they
+come.
+
+LIZA. You’re no gentleman, you’re not, to talk of such things. I’m a
+good girl, I am; and I know what the like of you are, I do.
+
+HIGGINS. We want none of your Lisson Grove prudery here, young woman.
+You’ve got to learn to behave like a duchess. Take her away, Mrs.
+Pearce. If she gives you any trouble wallop her.
+
+LIZA [springing up and running between Pickering and Mrs. Pearce for
+protection] No! I’ll call the police, I will.
+
+MRS. PEARCE. But I’ve no place to put her.
+
+HIGGINS. Put her in the dustbin.
+
+LIZA. Ah—ah—ah—ow—ow—oo!
+
+PICKERING. Oh come, Higgins! be reasonable.
+
+MRS. PEARCE [resolutely] You must be reasonable, Mr. Higgins: really
+you must. You can’t walk over everybody like this.
+
+Higgins, thus scolded, subsides. The hurricane is succeeded by a zephyr
+of amiable surprise.
+
+HIGGINS [with professional exquisiteness of modulation] I walk over
+everybody! My dear Mrs. Pearce, my dear Pickering, I never had the
+slightest intention of walking over anyone. All I propose is that we
+should be kind to this poor girl. We must help her to prepare and fit
+herself for her new station in life. If I did not express myself
+clearly it was because I did not wish to hurt her delicacy, or yours.
+
+Liza, reassured, steals back to her chair.
+
+MRS. PEARCE [to Pickering] Well, did you ever hear anything like that,
+sir?
+
+PICKERING [laughing heartily] Never, Mrs. Pearce: never.
+
+HIGGINS [patiently] What’s the matter?
+
+MRS. PEARCE. Well, the matter is, sir, that you can’t take a girl up
+like that as if you were picking up a pebble on the beach.
+
+HIGGINS. Why not?
+
+MRS. PEARCE. Why not! But you don’t know anything about her. What about
+her parents? She may be married.
+
+LIZA. Garn!
+
+HIGGINS. There! As the girl very properly says, Garn! Married indeed!
+Don’t you know that a woman of that class looks a worn out drudge of
+fifty a year after she’s married.
+
+LIZA. Who’d marry me?
+
+HIGGINS [suddenly resorting to the most thrillingly beautiful low tones
+in his best elocutionary style] By George, Eliza, the streets will be
+strewn with the bodies of men shooting themselves for your sake before
+I’ve done with you.
+
+MRS. PEARCE. Nonsense, sir. You mustn’t talk like that to her.
+
+LIZA [rising and squaring herself determinedly] I’m going away. He’s
+off his chump, he is. I don’t want no balmies teaching me.
+
+HIGGINS [wounded in his tenderest point by her insensibility to his
+elocution] Oh, indeed! I’m mad, am I? Very well, Mrs. Pearce: you
+needn’t order the new clothes for her. Throw her out.
+
+LIZA [whimpering] Nah—ow. You got no right to touch me.
+
+MRS. PEARCE. You see now what comes of being saucy. [Indicating the
+door] This way, please.
+
+LIZA [almost in tears] I didn’t want no clothes. I wouldn’t have taken
+them [she throws away the handkerchief]. I can buy my own clothes.
+
+HIGGINS [deftly retrieving the handkerchief and intercepting her on her
+reluctant way to the door] You’re an ungrateful wicked girl. This is my
+return for offering to take you out of the gutter and dress you
+beautifully and make a lady of you.
+
+MRS. PEARCE. Stop, Mr. Higgins. I won’t allow it. It’s you that are
+wicked. Go home to your parents, girl; and tell them to take better
+care of you.
+
+LIZA. I ain’t got no parents. They told me I was big enough to earn my
+own living and turned me out.
+
+MRS. PEARCE. Where’s your mother?
+
+LIZA. I ain’t got no mother. Her that turned me out was my sixth
+stepmother. But I done without them. And I’m a good girl, I am.
+
+HIGGINS. Very well, then, what on earth is all this fuss about? The
+girl doesn’t belong to anybody—is no use to anybody but me. [He goes
+to Mrs. Pearce and begins coaxing]. You can adopt her, Mrs. Pearce: I’m
+sure a daughter would be a great amusement to you. Now don’t make any
+more fuss. Take her downstairs; and—
+
+MRS. PEARCE. But what’s to become of her? Is she to be paid anything?
+Do be sensible, sir.
+
+HIGGINS. Oh, pay her whatever is necessary: put it down in the
+housekeeping book. [Impatiently] What on earth will she want with
+money? She’ll have her food and her clothes. She’ll only drink if you
+give her money.
+
+LIZA [turning on him] Oh you are a brute. It’s a lie: nobody ever saw
+the sign of liquor on me. [She goes back to her chair and plants
+herself there defiantly].
+
+PICKERING [in good-humored remonstrance] Does it occur to you, Higgins,
+that the girl has some feelings?
+
+HIGGINS [looking critically at her] Oh no, I don’t think so. Not any
+feelings that we need bother about. [Cheerily] Have you, Eliza?
+
+LIZA. I got my feelings same as anyone else.
+
+HIGGINS [to Pickering, reflectively] You see the difficulty?
+
+PICKERING. Eh? What difficulty?
+
+HIGGINS. To get her to talk grammar. The mere pronunciation is easy
+enough.
+
+LIZA. I don’t want to talk grammar. I want to talk like a lady.
+
+MRS. PEARCE. Will you please keep to the point, Mr. Higgins. I want to
+know on what terms the girl is to be here. Is she to have any wages?
+And what is to become of her when you’ve finished your teaching? You
+must look ahead a little.
+
+HIGGINS [impatiently] What’s to become of her if I leave her in the
+gutter? Tell me that, Mrs. Pearce.
+
+MRS. PEARCE. That’s her own business, not yours, Mr. Higgins.
+
+HIGGINS. Well, when I’ve done with her, we can throw her back into the
+gutter; and then it will be her own business again; so that’s all right.
+
+LIZA. Oh, you’ve no feeling heart in you: you don’t care for nothing
+but yourself [she rises and takes the floor resolutely]. Here! I’ve had
+enough of this. I’m going [making for the door]. You ought to be
+ashamed of yourself, you ought.
+
+HIGGINS [snatching a chocolate cream from the piano, his eyes suddenly
+beginning to twinkle with mischief] Have some chocolates, Eliza.
+
+LIZA [halting, tempted] How do I know what might be in them? I’ve heard
+of girls being drugged by the like of you.
+
+Higgins whips out his penknife; cuts a chocolate in two; puts one half
+into his mouth and bolts it; and offers her the other half.
+
+HIGGINS. Pledge of good faith, Eliza. I eat one half you eat the other.
+
+[Liza opens her mouth to retort: he pops the half chocolate into it].
+You shall have boxes of them, barrels of them, every day. You shall
+live on them. Eh?
+
+LIZA [who has disposed of the chocolate after being nearly choked by
+it] I wouldn’t have ate it, only I’m too ladylike to take it out of my
+mouth.
+
+HIGGINS. Listen, Eliza. I think you said you came in a taxi.
+
+LIZA. Well, what if I did? I’ve as good a right to take a taxi as
+anyone else.
+
+HIGGINS. You have, Eliza; and in future you shall have as many taxis as
+you want. You shall go up and down and round the town in a taxi every
+day. Think of that, Eliza.
+
+MRS. PEARCE. Mr. Higgins: you’re tempting the girl. It’s not right. She
+should think of the future.
+
+HIGGINS. At her age! Nonsense! Time enough to think of the future when
+you haven’t any future to think of. No, Eliza: do as this lady does:
+think of other people’s futures; but never think of your own. Think of
+chocolates, and taxis, and gold, and diamonds.
+
+LIZA. No: I don’t want no gold and no diamonds. I’m a good girl, I am.
+[She sits down again, with an attempt at dignity].
+
+HIGGINS. You shall remain so, Eliza, under the care of Mrs. Pearce. And
+you shall marry an officer in the Guards, with a beautiful moustache:
+the son of a marquis, who will disinherit him for marrying you, but
+will relent when he sees your beauty and goodness—
+
+PICKERING. Excuse me, Higgins; but I really must interfere. Mrs. Pearce
+is quite right. If this girl is to put herself in your hands for six
+months for an experiment in teaching, she must understand thoroughly
+what she’s doing.
+
+HIGGINS. How can she? She’s incapable of understanding anything.
+Besides, do any of us understand what we are doing? If we did, would we
+ever do it?
+
+PICKERING. Very clever, Higgins; but not sound sense. [To Eliza] Miss
+Doolittle—
+
+LIZA [overwhelmed] Ah—ah—ow—oo!
+
+HIGGINS. There! That’s all you get out of Eliza. Ah—ah—ow—oo! No use
+explaining. As a military man you ought to know that. Give her her
+orders: that’s what she wants. Eliza: you are to live here for the next
+six months, learning how to speak beautifully, like a lady in a
+florist’s shop. If you’re good and do whatever you’re told, you shall
+sleep in a proper bedroom, and have lots to eat, and money to buy
+chocolates and take rides in taxis. If you’re naughty and idle you will
+sleep in the back kitchen among the black beetles, and be walloped by
+Mrs. Pearce with a broomstick. At the end of six months you shall go to
+Buckingham Palace in a carriage, beautifully dressed. If the King finds
+out you’re not a lady, you will be taken by the police to the Tower of
+London, where your head will be cut off as a warning to other
+presumptuous flower girls. If you are not found out, you shall have a
+present of seven-and-sixpence to start life with as a lady in a shop.
+If you refuse this offer you will be a most ungrateful and wicked girl;
+and the angels will weep for you. [To Pickering] Now are you satisfied,
+Pickering? [To Mrs. Pearce] Can I put it more plainly and fairly, Mrs.
+Pearce?
+
+MRS. PEARCE [patiently] I think you’d better let me speak to the girl
+properly in private. I don’t know that I can take charge of her or
+consent to the arrangement at all. Of course I know you don’t mean her
+any harm; but when you get what you call interested in people’s
+accents, you never think or care what may happen to them or you. Come
+with me, Eliza.
+
+HIGGINS. That’s all right. Thank you, Mrs. Pearce. Bundle her off to
+the bath-room.
+
+LIZA [rising reluctantly and suspiciously] You’re a great bully, you
+are. I won’t stay here if I don’t like. I won’t let nobody wallop me. I
+never asked to go to Bucknam Palace, I didn’t. I was never in trouble
+with the police, not me. I’m a good girl—
+
+MRS. PEARCE. Don’t answer back, girl. You don’t understand the
+gentleman. Come with me. [She leads the way to the door, and holds it
+open for Eliza].
+
+LIZA [as she goes out] Well, what I say is right. I won’t go near the
+king, not if I’m going to have my head cut off. If I’d known what I was
+letting myself in for, I wouldn’t have come here. I always been a good
+girl; and I never offered to say a word to him; and I don’t owe him
+nothing; and I don’t care; and I won’t be put upon; and I have my
+feelings the same as anyone else—
+
+Mrs. Pearce shuts the door; and Eliza’s plaints are no longer audible.
+Pickering comes from the hearth to the chair and sits astride it with
+his arms on the back.
+
+PICKERING. Excuse the straight question, Higgins. Are you a man of good
+character where women are concerned?
+
+HIGGINS [moodily] Have you ever met a man of good character where women
+are concerned?
+
+PICKERING. Yes: very frequently.
+
+HIGGINS [dogmatically, lifting himself on his hands to the level of the
+piano, and sitting on it with a bounce] Well, I haven’t. I find that
+the moment I let a woman make friends with me, she becomes jealous,
+exacting, suspicious, and a damned nuisance. I find that the moment I
+let myself make friends with a woman, I become selfish and tyrannical.
+Women upset everything. When you let them into your life, you find that
+the woman is driving at one thing and you’re driving at another.
+
+PICKERING. At what, for example?
+
+HIGGINS [coming off the piano restlessly] Oh, Lord knows! I suppose the
+woman wants to live her own life; and the man wants to live his; and
+each tries to drag the other on to the wrong track. One wants to go
+north and the other south; and the result is that both have to go east,
+though they both hate the east wind. [He sits down on the bench at the
+keyboard]. So here I am, a confirmed old bachelor, and likely to remain
+so.
+
+PICKERING [rising and standing over him gravely] Come, Higgins! You
+know what I mean. If I’m to be in this business I shall feel
+responsible for that girl. I hope it’s understood that no advantage is
+to be taken of her position.
+
+HIGGINS. What! That thing! Sacred, I assure you. [Rising to explain]
+You see, she’ll be a pupil; and teaching would be impossible unless
+pupils were sacred. I’ve taught scores of American millionairesses how
+to speak English: the best looking women in the world. I’m seasoned.
+They might as well be blocks of wood. I might as well be a block of
+wood. It’s—
+
+Mrs. Pearce opens the door. She has Eliza’s hat in her hand. Pickering
+retires to the easy-chair at the hearth and sits down.
+
+HIGGINS [eagerly] Well, Mrs. Pearce: is it all right?
+
+MRS. PEARCE [at the door] I just wish to trouble you with a word, if I
+may, Mr. Higgins.
+
+HIGGINS. Yes, certainly. Come in. [She comes forward]. Don’t burn that,
+Mrs. Pearce. I’ll keep it as a curiosity. [He takes the hat].
+
+MRS. PEARCE. Handle it carefully, sir, please. I had to promise her not
+to burn it; but I had better put it in the oven for a while.
+
+HIGGINS [putting it down hastily on the piano] Oh! thank you. Well,
+what have you to say to me?
+
+PICKERING. Am I in the way?
+
+MRS. PEARCE. Not at all, sir. Mr. Higgins: will you please be very
+particular what you say before the girl?
+
+HIGGINS [sternly] Of course. I’m always particular about what I say.
+Why do you say this to me?
+
+MRS. PEARCE [unmoved] No, sir: you’re not at all particular when you’ve
+mislaid anything or when you get a little impatient. Now it doesn’t
+matter before me: I’m used to it. But you really must not swear before
+the girl.
+
+HIGGINS [indignantly] I swear! [Most emphatically] I never swear. I
+detest the habit. What the devil do you mean?
+
+MRS. PEARCE [stolidly] That’s what I mean, sir. You swear a great deal
+too much. I don’t mind your damning and blasting, and what the devil
+and where the devil and who the devil—
+
+HIGGINS. Really! Mrs. Pearce: this language from your lips!
+
+MRS. PEARCE [not to be put off]—but there is a certain word I must ask
+you not to use. The girl has just used it herself because the bath was
+too hot. It begins with the same letter as bath. She knows no better:
+she learnt it at her mother’s knee. But she must not hear it from your
+lips.
+
+HIGGINS [loftily] I cannot charge myself with having ever uttered it,
+Mrs. Pearce. [She looks at him steadfastly. He adds, hiding an uneasy
+conscience with a judicial air] Except perhaps in a moment of extreme
+and justifiable excitement.
+
+MRS. PEARCE. Only this morning, sir, you applied it to your boots, to
+the butter, and to the brown bread.
+
+HIGGINS. Oh, that! Mere alliteration, Mrs. Pearce, natural to a poet.
+
+MRS. PEARCE. Well, sir, whatever you choose to call it, I beg you not
+to let the girl hear you repeat it.
+
+HIGGINS. Oh, very well, very well. Is that all?
+
+MRS. PEARCE. No, sir. We shall have to be very particular with this
+girl as to personal cleanliness.
+
+HIGGINS. Certainly. Quite right. Most important.
+
+MRS. PEARCE. I mean not to be slovenly about her dress or untidy in
+leaving things about.
+
+HIGGINS [going to her solemnly] Just so. I intended to call your
+attention to that [He passes on to Pickering, who is enjoying the
+conversation immensely]. It is these little things that matter,
+Pickering. Take care of the pence and the pounds will take care of
+themselves is as true of personal habits as of money. [He comes to
+anchor on the hearthrug, with the air of a man in an unassailable
+position].
+
+MRS. PEARCE. Yes, sir. Then might I ask you not to come down to
+breakfast in your dressing-gown, or at any rate not to use it as a
+napkin to the extent you do, sir. And if you would be so good as not to
+eat everything off the same plate, and to remember not to put the
+porridge saucepan out of your hand on the clean tablecloth, it would be
+a better example to the girl. You know you nearly choked yourself with
+a fishbone in the jam only last week.
+
+HIGGINS [routed from the hearthrug and drifting back to the piano] I
+may do these things sometimes in absence of mind; but surely I don’t do
+them habitually. [Angrily] By the way: my dressing-gown smells most
+damnably of benzine.
+
+MRS. PEARCE. No doubt it does, Mr. Higgins. But if you will wipe your
+fingers—
+
+HIGGINS [yelling] Oh very well, very well: I’ll wipe them in my hair in
+future.
+
+MRS. PEARCE. I hope you’re not offended, Mr. Higgins.
+
+HIGGINS [shocked at finding himself thought capable of an unamiable
+sentiment] Not at all, not at all. You’re quite right, Mrs. Pearce: I
+shall be particularly careful before the girl. Is that all?
+
+MRS. PEARCE. No, sir. Might she use some of those Japanese dresses you
+brought from abroad? I really can’t put her back into her old things.
+
+HIGGINS. Certainly. Anything you like. Is that all?
+
+MRS. PEARCE. Thank you, sir. That’s all. [She goes out].
+
+HIGGINS. You know, Pickering, that woman has the most extraordinary
+ideas about me. Here I am, a shy, diffident sort of man. I’ve never
+been able to feel really grown-up and tremendous, like other chaps. And
+yet she’s firmly persuaded that I’m an arbitrary overbearing bossing
+kind of person. I can’t account for it.
+
+Mrs. Pearce returns.
+
+MRS. PEARCE. If you please, sir, the trouble’s beginning already.
+There’s a dustman downstairs, Alfred Doolittle, wants to see you. He
+says you have his daughter here.
+
+PICKERING [rising] Phew! I say! [He retreats to the hearthrug].
+
+HIGGINS [promptly] Send the blackguard up.
+
+MRS. PEARCE. Oh, very well, sir. [She goes out].
+
+PICKERING. He may not be a blackguard, Higgins.
+
+HIGGINS. Nonsense. Of course he’s a blackguard.
+
+PICKERING. Whether he is or not, I’m afraid we shall have some trouble
+with him.
+
+HIGGINS [confidently] Oh no: I think not. If there’s any trouble he
+shall have it with me, not I with him. And we are sure to get something
+interesting out of him.
+
+PICKERING. About the girl?
+
+HIGGINS. No. I mean his dialect.
+
+PICKERING. Oh!
+
+MRS. PEARCE [at the door] Doolittle, sir. [She admits Doolittle and
+retires].
+
+Alfred Doolittle is an elderly but vigorous dustman, clad in the
+costume of his profession, including a hat with a back brim covering
+his neck and shoulders. He has well marked and rather interesting
+features, and seems equally free from fear and conscience. He has a
+remarkably expressive voice, the result of a habit of giving vent to
+his feelings without reserve. His present pose is that of wounded honor
+and stern resolution.
+
+DOOLITTLE [at the door, uncertain which of the two gentlemen is his
+man] Professor Higgins?
+
+HIGGINS. Here. Good morning. Sit down.
+
+DOOLITTLE. Morning, Governor. [He sits down magisterially] I come about
+a very serious matter, Governor.
+
+HIGGINS [to Pickering] Brought up in Hounslow. Mother Welsh, I should
+think. [Doolittle opens his mouth, amazed. Higgins continues] What do
+you want, Doolittle?
+
+DOOLITTLE [menacingly] I want my daughter: that’s what I want. See?
+
+HIGGINS. Of course you do. You’re her father, aren’t you? You don’t
+suppose anyone else wants her, do you? I’m glad to see you have some
+spark of family feeling left. She’s upstairs. Take her away at once.
+
+DOOLITTLE [rising, fearfully taken aback] What!
+
+HIGGINS. Take her away. Do you suppose I’m going to keep your daughter
+for you?
+
+DOOLITTLE [remonstrating] Now, now, look here, Governor. Is this
+reasonable? Is it fair to take advantage of a man like this? The girl
+belongs to me. You got her. Where do I come in? [He sits down again].
+
+HIGGINS. Your daughter had the audacity to come to my house and ask me
+to teach her how to speak properly so that she could get a place in a
+flower-shop. This gentleman and my housekeeper have been here all the
+time. [Bullying him] How dare you come here and attempt to blackmail
+me? You sent her here on purpose.
+
+DOOLITTLE [protesting] No, Governor.
+
+HIGGINS. You must have. How else could you possibly know that she is
+here?
+
+DOOLITTLE. Don’t take a man up like that, Governor.
+
+HIGGINS. The police shall take you up. This is a plant—a plot to
+extort money by threats. I shall telephone for the police [he goes
+resolutely to the telephone and opens the directory].
+
+DOOLITTLE. Have I asked you for a brass farthing? I leave it to the
+gentleman here: have I said a word about money?
+
+HIGGINS [throwing the book aside and marching down on Doolittle with a
+poser] What else did you come for?
+
+DOOLITTLE [sweetly] Well, what would a man come for? Be human, governor.
+
+HIGGINS [disarmed] Alfred: did you put her up to it?
+
+DOOLITTLE. So help me, Governor, I never did. I take my Bible oath I
+ain’t seen the girl these two months past.
+
+HIGGINS. Then how did you know she was here?
+
+DOOLITTLE [“most musical, most melancholy”] I’ll tell you, Governor, if
+you’ll only let me get a word in. I’m willing to tell you. I’m wanting
+to tell you. I’m waiting to tell you.
+
+HIGGINS. Pickering: this chap has a certain natural gift of rhetoric.
+Observe the rhythm of his native woodnotes wild. “I’m willing to tell
+you: I’m wanting to tell you: I’m waiting to tell you.” Sentimental
+rhetoric! That’s the Welsh strain in him. It also accounts for his
+mendacity and dishonesty.
+
+PICKERING. Oh, PLEASE, Higgins: I’m west country myself. [To Doolittle]
+How did you know the girl was here if you didn’t send her?
+
+DOOLITTLE. It was like this, Governor. The girl took a boy in the taxi
+to give him a jaunt. Son of her landlady, he is. He hung about on the
+chance of her giving him another ride home. Well, she sent him back for
+her luggage when she heard you was willing for her to stop here. I met
+the boy at the corner of Long Acre and Endell Street.
+
+HIGGINS. Public house. Yes?
+
+DOOLITTLE. The poor man’s club, Governor: why shouldn’t I?
+
+PICKERING. Do let him tell his story, Higgins.
+
+DOOLITTLE. He told me what was up. And I ask you, what was my feelings
+and my duty as a father? I says to the boy, “You bring me the luggage,”
+I says—
+
+PICKERING. Why didn’t you go for it yourself?
+
+DOOLITTLE. Landlady wouldn’t have trusted me with it, Governor. She’s
+that kind of woman: you know. I had to give the boy a penny afore he
+trusted me with it, the little swine. I brought it to her just to
+oblige you like, and make myself agreeable. That’s all.
+
+HIGGINS. How much luggage?
+
+DOOLITTLE. Musical instrument, Governor. A few pictures, a trifle of
+jewelry, and a bird-cage. She said she didn’t want no clothes. What was
+I to think from that, Governor? I ask you as a parent what was I to
+think?
+
+HIGGINS. So you came to rescue her from worse than death, eh?
+
+DOOLITTLE [appreciatively: relieved at being understood] Just so,
+Governor. That’s right.
+
+PICKERING. But why did you bring her luggage if you intended to take
+her away?
+
+DOOLITTLE. Have I said a word about taking her away? Have I now?
+
+HIGGINS [determinedly] You’re going to take her away, double quick. [He
+crosses to the hearth and rings the bell].
+
+DOOLITTLE [rising] No, Governor. Don’t say that. I’m not the man to
+stand in my girl’s light. Here’s a career opening for her, as you might
+say; and—
+
+Mrs. Pearce opens the door and awaits orders.
+
+HIGGINS. Mrs. Pearce: this is Eliza’s father. He has come to take her
+away. Give her to him. [He goes back to the piano, with an air of
+washing his hands of the whole affair].
+
+DOOLITTLE. No. This is a misunderstanding. Listen here—
+
+MRS. PEARCE. He can’t take her away, Mr. Higgins: how can he? You told
+me to burn her clothes.
+
+DOOLITTLE. That’s right. I can’t carry the girl through the streets
+like a blooming monkey, can I? I put it to you.
+
+HIGGINS. You have put it to me that you want your daughter. Take your
+daughter. If she has no clothes go out and buy her some.
+
+DOOLITTLE [desperate] Where’s the clothes she come in? Did I burn them
+or did your missus here?
+
+MRS. PEARCE. I am the housekeeper, if you please. I have sent for some
+clothes for your girl. When they come you can take her away. You can
+wait in the kitchen. This way, please.
+
+Doolittle, much troubled, accompanies her to the door; then hesitates;
+finally turns confidentially to Higgins.
+
+DOOLITTLE. Listen here, Governor. You and me is men of the world, ain’t
+we?
+
+HIGGINS. Oh! Men of the world, are we? You’d better go, Mrs. Pearce.
+
+MRS. PEARCE. I think so, indeed, sir. [She goes, with dignity].
+
+PICKERING. The floor is yours, Mr. Doolittle.
+
+DOOLITTLE [to Pickering] I thank you, Governor. [To Higgins, who takes
+refuge on the piano bench, a little overwhelmed by the proximity of his
+visitor; for Doolittle has a professional flavor of dust about him].
+Well, the truth is, I’ve taken a sort of fancy to you, Governor; and if
+you want the girl, I’m not so set on having her back home again but
+what I might be open to an arrangement. Regarded in the light of a
+young woman, she’s a fine handsome girl. As a daughter she’s not worth
+her keep; and so I tell you straight. All I ask is my rights as a
+father; and you’re the last man alive to expect me to let her go for
+nothing; for I can see you’re one of the straight sort, Governor. Well,
+what’s a five pound note to you? And what’s Eliza to me? [He returns to
+his chair and sits down judicially].
+
+PICKERING. I think you ought to know, Doolittle, that Mr. Higgins’s
+intentions are entirely honorable.
+
+DOOLITTLE. Course they are, Governor. If I thought they wasn’t, I’d ask
+fifty.
+
+HIGGINS [revolted] Do you mean to say, you callous rascal, that you
+would sell your daughter for 50 pounds?
+
+DOOLITTLE. Not in a general way I wouldn’t; but to oblige a gentleman
+like you I’d do a good deal, I do assure you.
+
+PICKERING. Have you no morals, man?
+
+DOOLITTLE [unabashed] Can’t afford them, Governor. Neither could you if
+you was as poor as me. Not that I mean any harm, you know. But if Liza
+is going to have a bit out of this, why not me too?
+
+HIGGINS [troubled] I don’t know what to do, Pickering. There can be no
+question that as a matter of morals it’s a positive crime to give this
+chap a farthing. And yet I feel a sort of rough justice in his claim.
+
+DOOLITTLE. That’s it, Governor. That’s all I say. A father’s heart, as
+it were.
+
+PICKERING. Well, I know the feeling; but really it seems hardly right—
+
+DOOLITTLE. Don’t say that, Governor. Don’t look at it that way. What am
+I, Governors both? I ask you, what am I? I’m one of the undeserving
+poor: that’s what I am. Think of what that means to a man. It means
+that he’s up agen middle class morality all the time. If there’s
+anything going, and I put in for a bit of it, it’s always the same
+story: “You’re undeserving; so you can’t have it.” But my needs is as
+great as the most deserving widow’s that ever got money out of six
+different charities in one week for the death of the same husband. I
+don’t need less than a deserving man: I need more. I don’t eat less
+hearty than him; and I drink a lot more. I want a bit of amusement,
+cause I’m a thinking man. I want cheerfulness and a song and a band
+when I feel low. Well, they charge me just the same for everything as
+they charge the deserving. What is middle class morality? Just an
+excuse for never giving me anything. Therefore, I ask you, as two
+gentlemen, not to play that game on me. I’m playing straight with you.
+I ain’t pretending to be deserving. I’m undeserving; and I mean to go
+on being undeserving. I like it; and that’s the truth. Will you take
+advantage of a man’s nature to do him out of the price of his own
+daughter what he’s brought up and fed and clothed by the sweat of his
+brow until she’s growed big enough to be interesting to you two
+gentlemen? Is five pounds unreasonable? I put it to you; and I leave it
+to you.
+
+HIGGINS [rising, and going over to Pickering] Pickering: if we were to
+take this man in hand for three months, he could choose between a seat
+in the Cabinet and a popular pulpit in Wales.
+
+PICKERING. What do you say to that, Doolittle?
+
+DOOLITTLE. Not me, Governor, thank you kindly. I’ve heard all the
+preachers and all the prime ministers—for I’m a thinking man and game
+for politics or religion or social reform same as all the other
+amusements—and I tell you it’s a dog’s life anyway you look at it.
+Undeserving poverty is my line. Taking one station in society with
+another, it’s—it’s—well, it’s the only one that has any ginger in it,
+to my taste.
+
+HIGGINS. I suppose we must give him a fiver.
+
+PICKERING. He’ll make a bad use of it, I’m afraid.
+
+DOOLITTLE. Not me, Governor, so help me I won’t. Don’t you be afraid
+that I’ll save it and spare it and live idle on it. There won’t be a
+penny of it left by Monday: I’ll have to go to work same as if I’d
+never had it. It won’t pauperize me, you bet. Just one good spree for
+myself and the missus, giving pleasure to ourselves and employment to
+others, and satisfaction to you to think it’s not been throwed away.
+You couldn’t spend it better.
+
+HIGGINS [taking out his pocket book and coming between Doolittle and
+the piano] This is irresistible. Let’s give him ten. [He offers two
+notes to the dustman].
+
+DOOLITTLE. No, Governor. She wouldn’t have the heart to spend ten; and
+perhaps I shouldn’t neither. Ten pounds is a lot of money: it makes a
+man feel prudent like; and then goodbye to happiness. You give me what
+I ask you, Governor: not a penny more, and not a penny less.
+
+PICKERING. Why don’t you marry that missus of yours? I rather draw the
+line at encouraging that sort of immorality.
+
+DOOLITTLE. Tell her so, Governor: tell her so. I’m willing. It’s me
+that suffers by it. I’ve no hold on her. I got to be agreeable to her.
+I got to give her presents. I got to buy her clothes something sinful.
+I’m a slave to that woman, Governor, just because I’m not her lawful
+husband. And she knows it too. Catch her marrying me! Take my advice,
+Governor: marry Eliza while she’s young and don’t know no better. If
+you don’t you’ll be sorry for it after. If you do, she’ll be sorry for
+it after; but better you than her, because you’re a man, and she’s only
+a woman and don’t know how to be happy anyhow.
+
+HIGGINS. Pickering: if we listen to this man another minute, we shall
+have no convictions left. [To Doolittle] Five pounds I think you said.
+
+DOOLITTLE. Thank you kindly, Governor.
+
+HIGGINS. You’re sure you won’t take ten?
+
+DOOLITTLE. Not now. Another time, Governor.
+
+HIGGINS [handing him a five-pound note] Here you are.
+
+DOOLITTLE. Thank you, Governor. Good morning.
+
+[He hurries to the door, anxious to get away with his booty. When he
+opens it he is confronted with a dainty and exquisitely clean young
+Japanese lady in a simple blue cotton kimono printed cunningly with
+small white jasmine blossoms. Mrs. Pearce is with her. He gets out of
+her way deferentially and apologizes]. Beg pardon, miss.
+
+THE JAPANESE LADY. Garn! Don’t you know your own daughter?
+
+  DOOLITTLE   {exclaiming  Bly me! it’s Eliza!
+  HIGGINS     {simul-      What’s that! This!
+  PICKERING   {taneously   By Jove!
+
+LIZA. Don’t I look silly?
+
+HIGGINS. Silly?
+
+MRS. PEARCE [at the door] Now, Mr. Higgins, please don’t say anything
+to make the girl conceited about herself.
+
+HIGGINS [conscientiously] Oh! Quite right, Mrs. Pearce. [To Eliza] Yes:
+damned silly.
+
+MRS. PEARCE. Please, sir.
+
+HIGGINS [correcting himself] I mean extremely silly.
+
+LIZA. I should look all right with my hat on. [She takes up her hat;
+puts it on; and walks across the room to the fireplace with a
+fashionable air].
+
+HIGGINS. A new fashion, by George! And it ought to look horrible!
+
+DOOLITTLE [with fatherly pride] Well, I never thought she’d clean up as
+good looking as that, Governor. She’s a credit to me, ain’t she?
+
+LIZA. I tell you, it’s easy to clean up here. Hot and cold water on
+tap, just as much as you like, there is. Woolly towels, there is; and a
+towel horse so hot, it burns your fingers. Soft brushes to scrub
+yourself, and a wooden bowl of soap smelling like primroses. Now I know
+why ladies is so clean. Washing’s a treat for them. Wish they saw what
+it is for the like of me!
+
+HIGGINS. I’m glad the bath-room met with your approval.
+
+LIZA. It didn’t: not all of it; and I don’t care who hears me say it.
+Mrs. Pearce knows.
+
+HIGGINS. What was wrong, Mrs. Pearce?
+
+MRS. PEARCE [blandly] Oh, nothing, sir. It doesn’t matter.
+
+LIZA. I had a good mind to break it. I didn’t know which way to look.
+But I hung a towel over it, I did.
+
+HIGGINS. Over what?
+
+MRS. PEARCE. Over the looking-glass, sir.
+
+HIGGINS. Doolittle: you have brought your daughter up too strictly.
+
+DOOLITTLE. Me! I never brought her up at all, except to give her a lick
+of a strap now and again. Don’t put it on me, Governor. She ain’t
+accustomed to it, you see: that’s all. But she’ll soon pick up your
+free-and-easy ways.
+
+LIZA. I’m a good girl, I am; and I won’t pick up no free and easy ways.
+
+HIGGINS. Eliza: if you say again that you’re a good girl, your father
+shall take you home.
+
+LIZA. Not him. You don’t know my father. All he come here for was to
+touch you for some money to get drunk on.
+
+DOOLITTLE. Well, what else would I want money for? To put into the
+plate in church, I suppose. [She puts out her tongue at him. He is so
+incensed by this that Pickering presently finds it necessary to step
+between them]. Don’t you give me none of your lip; and don’t let me
+hear you giving this gentleman any of it neither, or you’ll hear from
+me about it. See?
+
+HIGGINS. Have you any further advice to give her before you go,
+Doolittle? Your blessing, for instance.
+
+DOOLITTLE. No, Governor: I ain’t such a mug as to put up my children to
+all I know myself. Hard enough to hold them in without that. If you
+want Eliza’s mind improved, Governor, you do it yourself with a strap.
+So long, gentlemen. [He turns to go].
+
+HIGGINS [impressively] Stop. You’ll come regularly to see your
+daughter. It’s your duty, you know. My brother is a clergyman; and he
+could help you in your talks with her.
+
+DOOLITTLE [evasively] Certainly. I’ll come, Governor. Not just this
+week, because I have a job at a distance. But later on you may depend
+on me. Afternoon, gentlemen. Afternoon, ma’am. [He takes off his hat to
+Mrs. Pearce, who disdains the salutation and goes out. He winks at
+Higgins, thinking him probably a fellow sufferer from Mrs. Pearce’s
+difficult disposition, and follows her].
+
+LIZA. Don’t you believe the old liar. He’d as soon you set a bull-dog
+on him as a clergyman. You won’t see him again in a hurry.
+
+HIGGINS. I don’t want to, Eliza. Do you?
+
+LIZA. Not me. I don’t want never to see him again, I don’t. He’s a
+disgrace to me, he is, collecting dust, instead of working at his trade.
+
+PICKERING. What is his trade, Eliza?
+
+LIZA. Talking money out of other people’s pockets into his own. His
+proper trade’s a navvy; and he works at it sometimes too—for
+exercise—and earns good money at it. Ain’t you going to call me Miss
+Doolittle any more?
+
+PICKERING. I beg your pardon, Miss Doolittle. It was a slip of the
+tongue.
+
+LIZA. Oh, I don’t mind; only it sounded so genteel. I should just like
+to take a taxi to the corner of Tottenham Court Road and get out there
+and tell it to wait for me, just to put the girls in their place a bit.
+I wouldn’t speak to them, you know.
+
+PICKERING. Better wait til we get you something really fashionable.
+
+HIGGINS. Besides, you shouldn’t cut your old friends now that you have
+risen in the world. That’s what we call snobbery.
+
+LIZA. You don’t call the like of them my friends now, I should hope.
+They’ve took it out of me often enough with their ridicule when they
+had the chance; and now I mean to get a bit of my own back. But if I’m
+to have fashionable clothes, I’ll wait. I should like to have some.
+Mrs. Pearce says you’re going to give me some to wear in bed at night
+different to what I wear in the daytime; but it do seem a waste of
+money when you could get something to show. Besides, I never could
+fancy changing into cold things on a winter night.
+
+MRS. PEARCE [coming back] Now, Eliza. The new things have come for you
+to try on.
+
+LIZA. Ah—ow—oo—ooh! [She rushes out].
+
+MRS. PEARCE [following her] Oh, don’t rush about like that, girl [She
+shuts the door behind her].
+
+HIGGINS. Pickering: we have taken on a stiff job.
+
+PICKERING [with conviction] Higgins: we have.
+
+
+
+
+ACT III
+
+
+It is Mrs. Higgins’s at-home day. Nobody has yet arrived. Her
+drawing-room, in a flat on Chelsea embankment, has three windows
+looking on the river; and the ceiling is not so lofty as it would be in
+an older house of the same pretension. The windows are open, giving
+access to a balcony with flowers in pots. If you stand with your face
+to the windows, you have the fireplace on your left and the door in the
+right-hand wall close to the corner nearest the windows.
+
+Mrs. Higgins was brought up on Morris and Burne Jones; and her room,
+which is very unlike her son’s room in Wimpole Street, is not crowded
+with furniture and little tables and nicknacks. In the middle of the
+room there is a big ottoman; and this, with the carpet, the Morris
+wall-papers, and the Morris chintz window curtains and brocade covers
+of the ottoman and its cushions, supply all the ornament, and are much
+too handsome to be hidden by odds and ends of useless things. A few
+good oil-paintings from the exhibitions in the Grosvenor Gallery thirty
+years ago (the Burne Jones, not the Whistler side of them) are on the
+walls. The only landscape is a Cecil Lawson on the scale of a Rubens.
+There is a portrait of Mrs. Higgins as she was when she defied fashion
+in her youth in one of the beautiful Rossettian costumes which, when
+caricatured by people who did not understand, led to the absurdities of
+popular estheticism in the eighteen-seventies.
+
+In the corner diagonally opposite the door Mrs. Higgins, now over sixty
+and long past taking the trouble to dress out of the fashion, sits
+writing at an elegantly simple writing-table with a bell button within
+reach of her hand. There is a Chippendale chair further back in the
+room between her and the window nearest her side. At the other side of
+the room, further forward, is an Elizabethan chair roughly carved in
+the taste of Inigo Jones. On the same side a piano in a decorated case.
+The corner between the fireplace and the window is occupied by a divan
+cushioned in Morris chintz.
+
+It is between four and five in the afternoon.
+
+The door is opened violently; and Higgins enters with his hat on.
+
+MRS. HIGGINS [dismayed] Henry [scolding him]! What are you doing here
+to-day? It is my at home day: you promised not to come. [As he bends to
+kiss her, she takes his hat off, and presents it to him].
+
+HIGGINS. Oh bother! [He throws the hat down on the table].
+
+MRS. HIGGINS. Go home at once.
+
+HIGGINS [kissing her] I know, mother. I came on purpose.
+
+MRS. HIGGINS. But you mustn’t. I’m serious, Henry. You offend all my
+friends: they stop coming whenever they meet you.
+
+HIGGINS. Nonsense! I know I have no small talk; but people don’t mind.
+[He sits on the settee].
+
+MRS. HIGGINS. Oh! don’t they? Small talk indeed! What about your large
+talk? Really, dear, you mustn’t stay.
+
+HIGGINS. I must. I’ve a job for you. A phonetic job.
+
+MRS. HIGGINS. No use, dear. I’m sorry; but I can’t get round your
+vowels; and though I like to get pretty postcards in your patent
+shorthand, I always have to read the copies in ordinary writing you so
+thoughtfully send me.
+
+HIGGINS. Well, this isn’t a phonetic job.
+
+MRS. HIGGINS. You said it was.
+
+HIGGINS. Not your part of it. I’ve picked up a girl.
+
+MRS. HIGGINS. Does that mean that some girl has picked you up?
+
+HIGGINS. Not at all. I don’t mean a love affair.
+
+MRS. HIGGINS. What a pity!
+
+HIGGINS. Why?
+
+MRS. HIGGINS. Well, you never fall in love with anyone under
+forty-five. When will you discover that there are some rather
+nice-looking young women about?
+
+HIGGINS. Oh, I can’t be bothered with young women. My idea of a
+loveable woman is something as like you as possible. I shall never get
+into the way of seriously liking young women: some habits lie too deep
+to be changed. [Rising abruptly and walking about, jingling his money
+and his keys in his trouser pockets] Besides, they’re all idiots.
+
+MRS. HIGGINS. Do you know what you would do if you really loved me,
+Henry?
+
+HIGGINS. Oh bother! What? Marry, I suppose?
+
+MRS. HIGGINS. No. Stop fidgeting and take your hands out of your
+pockets. [With a gesture of despair, he obeys and sits down again].
+That’s a good boy. Now tell me about the girl.
+
+HIGGINS. She’s coming to see you.
+
+MRS. HIGGINS. I don’t remember asking her.
+
+HIGGINS. You didn’t. I asked her. If you’d known her you wouldn’t have
+asked her.
+
+MRS. HIGGINS. Indeed! Why?
+
+HIGGINS. Well, it’s like this. She’s a common flower girl. I picked her
+off the kerbstone.
+
+MRS. HIGGINS. And invited her to my at-home!
+
+HIGGINS [rising and coming to her to coax her] Oh, that’ll be all
+right. I’ve taught her to speak properly; and she has strict orders as
+to her behavior. She’s to keep to two subjects: the weather and
+everybody’s health—Fine day and How do you do, you know—and not to
+let herself go on things in general. That will be safe.
+
+MRS. HIGGINS. Safe! To talk about our health! about our insides!
+perhaps about our outsides! How could you be so silly, Henry?
+
+HIGGINS [impatiently] Well, she must talk about something. [He controls
+himself and sits down again]. Oh, she’ll be all right: don’t you fuss.
+Pickering is in it with me. I’ve a sort of bet on that I’ll pass her
+off as a duchess in six months. I started on her some months ago; and
+she’s getting on like a house on fire. I shall win my bet. She has a
+quick ear; and she’s been easier to teach than my middle-class pupils
+because she’s had to learn a complete new language. She talks English
+almost as you talk French.
+
+MRS. HIGGINS. That’s satisfactory, at all events.
+
+HIGGINS. Well, it is and it isn’t.
+
+MRS. HIGGINS. What does that mean?
+
+HIGGINS. You see, I’ve got her pronunciation all right; but you have to
+consider not only how a girl pronounces, but what she pronounces; and
+that’s where—
+
+They are interrupted by the parlor-maid, announcing guests.
+
+THE PARLOR-MAID. Mrs. and Miss Eynsford Hill. [She withdraws].
+
+HIGGINS. Oh Lord! [He rises; snatches his hat from the table; and makes
+for the door; but before he reaches it his mother introduces him].
+
+Mrs. and Miss Eynsford Hill are the mother and daughter who sheltered
+from the rain in Covent Garden. The mother is well bred, quiet, and has
+the habitual anxiety of straitened means. The daughter has acquired a
+gay air of being very much at home in society: the bravado of genteel
+poverty.
+
+MRS. EYNSFORD HILL [to Mrs. Higgins] How do you do? [They shake hands].
+
+MISS EYNSFORD HILL. How d’you do? [She shakes].
+
+MRS. HIGGINS [introducing] My son Henry.
+
+MRS. EYNSFORD HILL. Your celebrated son! I have so longed to meet you,
+Professor Higgins.
+
+HIGGINS [glumly, making no movement in her direction] Delighted. [He
+backs against the piano and bows brusquely].
+
+Miss EYNSFORD HILL [going to him with confident familiarity] How do you
+do?
+
+HIGGINS [staring at her] I’ve seen you before somewhere. I haven’t the
+ghost of a notion where; but I’ve heard your voice. [Drearily] It
+doesn’t matter. You’d better sit down.
+
+MRS. HIGGINS. I’m sorry to say that my celebrated son has no manners.
+You mustn’t mind him.
+
+MISS EYNSFORD HILL [gaily] I don’t. [She sits in the Elizabethan chair].
+
+MRS. EYNSFORD HILL [a little bewildered] Not at all. [She sits on the
+ottoman between her daughter and Mrs. Higgins, who has turned her chair
+away from the writing-table].
+
+HIGGINS. Oh, have I been rude? I didn’t mean to be. [He goes to the
+central window, through which, with his back to the company, he
+contemplates the river and the flowers in Battersea Park on the
+opposite bank as if they were a frozen dessert.]
+
+The parlor-maid returns, ushering in Pickering.
+
+THE PARLOR-MAID. Colonel Pickering [She withdraws].
+
+PICKERING. How do you do, Mrs. Higgins?
+
+MRS. HIGGINS. So glad you’ve come. Do you know Mrs. Eynsford Hill—Miss
+Eynsford Hill? [Exchange of bows. The Colonel brings the Chippendale
+chair a little forward between Mrs. Hill and Mrs. Higgins, and sits
+down].
+
+PICKERING. Has Henry told you what we’ve come for?
+
+HIGGINS [over his shoulder] We were interrupted: damn it!
+
+MRS. HIGGINS. Oh Henry, Henry, really!
+
+MRS. EYNSFORD HILL [half rising] Are we in the way?
+
+MRS. HIGGINS [rising and making her sit down again] No, no. You
+couldn’t have come more fortunately: we want you to meet a friend of
+ours.
+
+HIGGINS [turning hopefully] Yes, by George! We want two or three
+people. You’ll do as well as anybody else.
+
+The parlor-maid returns, ushering Freddy.
+
+THE PARLOR-MAID. Mr. Eynsford Hill.
+
+HIGGINS [almost audibly, past endurance] God of Heaven! another of them.
+
+FREDDY [shaking hands with Mrs. Higgins] Ahdedo?
+
+MRS. HIGGINS. Very good of you to come. [Introducing] Colonel Pickering.
+
+FREDDY [bowing] Ahdedo?
+
+MRS. HIGGINS. I don’t think you know my son, Professor Higgins.
+
+FREDDY [going to Higgins] Ahdedo?
+
+HIGGINS [looking at him much as if he were a pickpocket] I’ll take my
+oath I’ve met you before somewhere. Where was it?
+
+FREDDY. I don’t think so.
+
+HIGGINS [resignedly] It don’t matter, anyhow. Sit down. He shakes
+Freddy’s hand, and almost slings him on the ottoman with his face to
+the windows; then comes round to the other side of it.
+
+HIGGINS. Well, here we are, anyhow! [He sits down on the ottoman next
+Mrs. Eynsford Hill, on her left.] And now, what the devil are we going
+to talk about until Eliza comes?
+
+MRS. HIGGINS. Henry: you are the life and soul of the Royal Society’s
+soirees; but really you’re rather trying on more commonplace occasions.
+
+HIGGINS. Am I? Very sorry. [Beaming suddenly] I suppose I am, you know.
+[Uproariously] Ha, ha!
+
+MISS EYNSFORD HILL [who considers Higgins quite eligible matrimonially]
+I sympathize. I haven’t any small talk. If people would only be frank
+and say what they really think!
+
+HIGGINS [relapsing into gloom] Lord forbid!
+
+MRS. EYNSFORD HILL [taking up her daughter’s cue] But why?
+
+HIGGINS. What they think they ought to think is bad enough, Lord knows;
+but what they really think would break up the whole show. Do you
+suppose it would be really agreeable if I were to come out now with
+what I really think?
+
+MISS EYNSFORD HILL [gaily] Is it so very cynical?
+
+HIGGINS. Cynical! Who the dickens said it was cynical? I mean it
+wouldn’t be decent.
+
+MRS. EYNSFORD HILL [seriously] Oh! I’m sure you don’t mean that, Mr.
+Higgins.
+
+HIGGINS. You see, we’re all savages, more or less. We’re supposed to be
+civilized and cultured—to know all about poetry and philosophy and art
+and science, and so on; but how many of us know even the meanings of
+these names? [To Miss Hill] What do you know of poetry? [To Mrs. Hill]
+What do you know of science? [Indicating Freddy] What does he know of
+art or science or anything else? What the devil do you imagine I know
+of philosophy?
+
+MRS. HIGGINS [warningly] Or of manners, Henry?
+
+THE PARLOR-MAID [opening the door] Miss Doolittle. [She withdraws].
+
+HIGGINS [rising hastily and running to Mrs. Higgins] Here she is,
+mother. [He stands on tiptoe and makes signs over his mother’s head to
+Eliza to indicate to her which lady is her hostess].
+
+Eliza, who is exquisitely dressed, produces an impression of such
+remarkable distinction and beauty as she enters that they all rise,
+quite flustered. Guided by Higgins’s signals, she comes to Mrs. Higgins
+with studied grace.
+
+LIZA [speaking with pedantic correctness of pronunciation and great
+beauty of tone] How do you do, Mrs. Higgins? [She gasps slightly in
+making sure of the H in Higgins, but is quite successful]. Mr. Higgins
+told me I might come.
+
+MRS. HIGGINS [cordially] Quite right: I’m very glad indeed to see you.
+
+PICKERING. How do you do, Miss Doolittle?
+
+LIZA [shaking hands with him] Colonel Pickering, is it not?
+
+MRS. EYNSFORD HILL. I feel sure we have met before, Miss Doolittle. I
+remember your eyes.
+
+LIZA. How do you do? [She sits down on the ottoman gracefully in the
+place just left vacant by Higgins].
+
+MRS. EYNSFORD HILL [introducing] My daughter Clara.
+
+LIZA. How do you do?
+
+CLARA [impulsively] How do you do? [She sits down on the ottoman beside
+Eliza, devouring her with her eyes].
+
+FREDDY [coming to their side of the ottoman] I’ve certainly had the
+pleasure.
+
+MRS. EYNSFORD HILL [introducing] My son Freddy.
+
+LIZA. How do you do?
+
+Freddy bows and sits down in the Elizabethan chair, infatuated.
+
+HIGGINS [suddenly] By George, yes: it all comes back to me! [They stare
+at him]. Covent Garden! [Lamentably] What a damned thing!
+
+MRS. HIGGINS. Henry, please! [He is about to sit on the edge of the
+table]. Don’t sit on my writing-table: you’ll break it.
+
+HIGGINS [sulkily] Sorry.
+
+He goes to the divan, stumbling into the fender and over the fire-irons
+on his way; extricating himself with muttered imprecations; and
+finishing his disastrous journey by throwing himself so impatiently on
+the divan that he almost breaks it. Mrs. Higgins looks at him, but
+controls herself and says nothing.
+
+A long and painful pause ensues.
+
+MRS. HIGGINS [at last, conversationally] Will it rain, do you think?
+
+LIZA. The shallow depression in the west of these islands is likely to
+move slowly in an easterly direction. There are no indications of any
+great change in the barometrical situation.
+
+FREDDY. Ha! ha! how awfully funny!
+
+LIZA. What is wrong with that, young man? I bet I got it right.
+
+FREDDY. Killing!
+
+MRS. EYNSFORD HILL. I’m sure I hope it won’t turn cold. There’s so much
+influenza about. It runs right through our whole family regularly every
+spring.
+
+LIZA [darkly] My aunt died of influenza: so they said.
+
+MRS. EYNSFORD HILL [clicks her tongue sympathetically]!!!
+
+LIZA [in the same tragic tone] But it’s my belief they done the old
+woman in.
+
+MRS. HIGGINS [puzzled] Done her in?
+
+LIZA. Y-e-e-e-es, Lord love you! Why should she die of influenza? She
+come through diphtheria right enough the year before. I saw her with my
+own eyes. Fairly blue with it, she was. They all thought she was dead;
+but my father he kept ladling gin down her throat til she came to so
+sudden that she bit the bowl off the spoon.
+
+MRS. EYNSFORD HILL [startled] Dear me!
+
+LIZA [piling up the indictment] What call would a woman with that
+strength in her have to die of influenza? What become of her new straw
+hat that should have come to me? Somebody pinched it; and what I say
+is, them as pinched it done her in.
+
+MRS. EYNSFORD HILL. What does doing her in mean?
+
+HIGGINS [hastily] Oh, that’s the new small talk. To do a person in
+means to kill them.
+
+MRS. EYNSFORD HILL [to Eliza, horrified] You surely don’t believe that
+your aunt was killed?
+
+LIZA. Do I not! Them she lived with would have killed her for a
+hat-pin, let alone a hat.
+
+MRS. EYNSFORD HILL. But it can’t have been right for your father to
+pour spirits down her throat like that. It might have killed her.
+
+LIZA. Not her. Gin was mother’s milk to her. Besides, he’d poured so
+much down his own throat that he knew the good of it.
+
+MRS. EYNSFORD HILL. Do you mean that he drank?
+
+LIZA. Drank! My word! Something chronic.
+
+MRS. EYNSFORD HILL. How dreadful for you!
+
+LIZA. Not a bit. It never did him no harm what I could see. But then he
+did not keep it up regular. [Cheerfully] On the burst, as you might
+say, from time to time. And always more agreeable when he had a drop
+in. When he was out of work, my mother used to give him fourpence and
+tell him to go out and not come back until he’d drunk himself cheerful
+and loving-like. There’s lots of women has to make their husbands drunk
+to make them fit to live with. [Now quite at her ease] You see, it’s
+like this. If a man has a bit of a conscience, it always takes him when
+he’s sober; and then it makes him low-spirited. A drop of booze just
+takes that off and makes him happy. [To Freddy, who is in convulsions
+of suppressed laughter] Here! what are you sniggering at?
+
+FREDDY. The new small talk. You do it so awfully well.
+
+LIZA. If I was doing it proper, what was you laughing at? [To Higgins]
+Have I said anything I oughtn’t?
+
+MRS. HIGGINS [interposing] Not at all, Miss Doolittle.
+
+LIZA. Well, that’s a mercy, anyhow. [Expansively] What I always say is—
+
+HIGGINS [rising and looking at his watch] Ahem!
+
+LIZA [looking round at him; taking the hint; and rising] Well: I must
+go. [They all rise. Freddy goes to the door]. So pleased to have met
+you. Good-bye. [She shakes hands with Mrs. Higgins].
+
+MRS. HIGGINS. Good-bye.
+
+LIZA. Good-bye, Colonel Pickering.
+
+PICKERING. Good-bye, Miss Doolittle. [They shake hands].
+
+LIZA [nodding to the others] Good-bye, all.
+
+FREDDY [opening the door for her] Are you walking across the Park, Miss
+Doolittle? If so—
+
+LIZA. Walk! Not bloody likely. [Sensation]. I am going in a taxi. [She
+goes out].
+
+Pickering gasps and sits down. Freddy goes out on the balcony to catch
+another glimpse of Eliza.
+
+MRS. EYNSFORD HILL [suffering from shock] Well, I really can’t get used
+to the new ways.
+
+CLARA [throwing herself discontentedly into the Elizabethan chair]. Oh,
+it’s all right, mamma, quite right. People will think we never go
+anywhere or see anybody if you are so old-fashioned.
+
+MRS. EYNSFORD HILL. I daresay I am very old-fashioned; but I do hope
+you won’t begin using that expression, Clara. I have got accustomed to
+hear you talking about men as rotters, and calling everything filthy
+and beastly; though I do think it horrible and unladylike. But this
+last is really too much. Don’t you think so, Colonel Pickering?
+
+PICKERING. Don’t ask me. I’ve been away in India for several years; and
+manners have changed so much that I sometimes don’t know whether I’m at
+a respectable dinner-table or in a ship’s forecastle.
+
+CLARA. It’s all a matter of habit. There’s no right or wrong in it.
+Nobody means anything by it. And it’s so quaint, and gives such a smart
+emphasis to things that are not in themselves very witty. I find the
+new small talk delightful and quite innocent.
+
+MRS. EYNSFORD HILL [rising] Well, after that, I think it’s time for us
+to go.
+
+Pickering and Higgins rise.
+
+CLARA [rising] Oh yes: we have three at homes to go to still. Good-bye,
+Mrs. Higgins. Good-bye, Colonel Pickering. Good-bye, Professor Higgins.
+
+HIGGINS [coming grimly at her from the divan, and accompanying her to
+the door] Good-bye. Be sure you try on that small talk at the three
+at-homes. Don’t be nervous about it. Pitch it in strong.
+
+CLARA [all smiles] I will. Good-bye. Such nonsense, all this early
+Victorian prudery!
+
+HIGGINS [tempting her] Such damned nonsense!
+
+CLARA. Such bloody nonsense!
+
+MRS. EYNSFORD HILL [convulsively] Clara!
+
+CLARA. Ha! ha! [She goes out radiant, conscious of being thoroughly up
+to date, and is heard descending the stairs in a stream of silvery
+laughter].
+
+FREDDY [to the heavens at large] Well, I ask you [He gives it up, and
+comes to Mrs. Higgins]. Good-bye.
+
+MRS. HIGGINS [shaking hands] Good-bye. Would you like to meet Miss
+Doolittle again?
+
+FREDDY [eagerly] Yes, I should, most awfully.
+
+MRS. HIGGINS. Well, you know my days.
+
+FREDDY. Yes. Thanks awfully. Good-bye. [He goes out].
+
+MRS. EYNSFORD HILL. Good-bye, Mr. Higgins.
+
+HIGGINS. Good-bye. Good-bye.
+
+MRS. EYNSFORD HILL [to Pickering] It’s no use. I shall never be able to
+bring myself to use that word.
+
+PICKERING. Don’t. It’s not compulsory, you know. You’ll get on quite
+well without it.
+
+MRS. EYNSFORD HILL. Only, Clara is so down on me if I am not positively
+reeking with the latest slang. Good-bye.
+
+PICKERING. Good-bye [They shake hands].
+
+MRS. EYNSFORD HILL [to Mrs. Higgins] You mustn’t mind Clara.
+[Pickering, catching from her lowered tone that this is not meant for
+him to hear, discreetly joins Higgins at the window]. We’re so poor!
+and she gets so few parties, poor child! She doesn’t quite know. [Mrs.
+Higgins, seeing that her eyes are moist, takes her hand sympathetically
+and goes with her to the door]. But the boy is nice. Don’t you think so?
+
+MRS. HIGGINS. Oh, quite nice. I shall always be delighted to see him.
+
+MRS. EYNSFORD HILL. Thank you, dear. Good-bye. [She goes out].
+
+HIGGINS [eagerly] Well? Is Eliza presentable [he swoops on his mother
+and drags her to the ottoman, where she sits down in Eliza’s place with
+her son on her left]?
+
+Pickering returns to his chair on her right.
+
+MRS. HIGGINS. You silly boy, of course she’s not presentable. She’s a
+triumph of your art and of her dressmaker’s; but if you suppose for a
+moment that she doesn’t give herself away in every sentence she utters,
+you must be perfectly cracked about her.
+
+PICKERING. But don’t you think something might be done? I mean
+something to eliminate the sanguinary element from her conversation.
+
+MRS. HIGGINS. Not as long as she is in Henry’s hands.
+
+HIGGINS [aggrieved] Do you mean that my language is improper?
+
+MRS. HIGGINS. No, dearest: it would be quite proper—say on a canal
+barge; but it would not be proper for her at a garden party.
+
+HIGGINS [deeply injured] Well I must say—
+
+PICKERING [interrupting him] Come, Higgins: you must learn to know
+yourself. I haven’t heard such language as yours since we used to
+review the volunteers in Hyde Park twenty years ago.
+
+HIGGINS [sulkily] Oh, well, if you say so, I suppose I don’t always
+talk like a bishop.
+
+MRS. HIGGINS [quieting Henry with a touch] Colonel Pickering: will you
+tell me what is the exact state of things in Wimpole Street?
+
+PICKERING [cheerfully: as if this completely changed the subject] Well,
+I have come to live there with Henry. We work together at my Indian
+Dialects; and we think it more convenient—
+
+MRS. HIGGINS. Quite so. I know all about that: it’s an excellent
+arrangement. But where does this girl live?
+
+HIGGINS. With us, of course. Where would she live?
+
+This, however, had taken place before the commencement of the Assyrian
+age. The bronze scimitar of Hadad-nirari I. (B.C. 1330)[55]
+finds an exact copy in a scimitar discovered by Mr. Macalister at Gezer
+in Palestine,[56] and the tools and weapons exhumed at Nineveh are of
+bronze and not copper. Analysis shows that the bronze usually consisted
+of about one part of tin to ten of copper, though for special objects
+like bells the amount of tin was considerably increased.[57] When was
+it that the tin was first imported and intentionally mixed with the
+copper in order to harden the metal?
+
+In default of archæological evidence, the only possibility there is
+of discovering an answer to this question lies in an examination
+of the primitive pictures out of which the cuneiform characters
+eventually developed. Here we are at once struck by a curious fact. The
+“determinative” attached to ideographs signifying “knife,” “weapon”
+and the like is not an ideograph which expresses the name of a metal;
+nor is it an ideograph denoting “stone,” but one which means “wood.”
+That is to say, the material of which cutting instruments were made at
+the time when the picture-writing of Babylonia came into existence was
+neither metal nor stone, but wood. That it should not have been stone
+is explained by the geology of the Babylonian plain, which consists of
+alluvial soil devoid of stones. That it should not have been of metal
+can only mean that the inventors of the pictorial script were not yet
+acquainted with the use of copper, bronze or iron. In default of metal
+and stone they had to content themselves with hard wood.
+
+On the other hand, copper, as well as gold and silver, had become
+known to them when the primitive pictographs were still in process of
+formation, and long before they had passed into cursive cuneiform.
+Copper was represented by the picture of an ingot or square plate of
+the metal with a handle attached to it, showing that it was already
+in a fused and worked state when it was imported into Babylonia. Gold
+seems to have originally been denoted by the picture of a collar or
+necklace, which signified “shining,” and was afterwards employed
+before the names of the precious metals. I have, however, never found
+this collar actually used to signify “gold”; in the earliest texts
+yet discovered the phonetic syllable _gi_ is attached to it when
+“gold” is denoted, the Sumerian word for “gold” being _azag-gi_.
+“Silver” was “the white precious metal,” the symbol for “white” being
+attached to the picture of the collar, and so forming a compound
+ideograph. This implies that silver became known to the inventors
+of the hieroglyphs at a later period than gold, though still before
+what I will call the cuneiform age. Even iron was known to them at
+the same early epoch, and was expressed by ideographs which literally
+mean “stone of heaven,”[58] an indication that meteoric iron must be
+referred to.
+
+  [Illustration: HEAD OF ONE OF THE STATUES FROM TELLO.
+
+      [_See p. 73._]
+
+  [Illustration:
+
+     VASE OF SILVER, DEDICATED TO NINGIRSU, BY ENTENA PATESI OF LAGAS.
+
+      [_See p. 58._]
+
+But now comes a fact which is difficult to explain, so contrary is
+it to the archæological evidence. As we have seen, no traces of
+bronze have been found in the Assyro-Babylonian region before the
+beginning of the Assyrian age--let us say about B.C. 2000.
+Nevertheless, by the side of the simple ideograph which denotes the
+Sumerian _urudu_, “copper”--_erû_ in Semitic Babylonian--we
+find a compound ideograph signifying “bronze,” called _zabar_ in
+Sumerian, from which the Semites borrowed their _’siparru_. It is
+true that it is a compound ideograph, but it occurs in the cuneiform
+texts, not only in the era of Gudea (B.C. 2700), but even
+before the age of Sargon of Akkad (B.C. 3800). And an analysis
+of its earliest form seems to indicate that it really must have meant
+bronze from the first, and that consequently there was no transference
+of signification in later days. Literally it means “white copper,” the
+word for “copper” being phonetically-written _ka-mas_, with which
+the Semitic Babylonian _kemassu_ is closely connected. Lead cannot
+be intended, as that was denoted by a different word and different
+ideographs, and I do not see what else “white copper” can be in
+contradistinction to red copper except bronze. Polished copper could
+be termed “bright,” but hardly “white.”[59]
+
+The possibility remains that tin might have been the metal originally
+denoted by the compound ideograph. If so, both the ideograph and
+the words expressed by it had lost all reference to tin before the
+beginning of the Assyrian period, and neither the Assyrian word for
+“tin” nor the Sumerian word, if any existed, is now known. Tin,
+moreover, was archæologically late in making its appearance. The
+earliest examples of pure tin of which I know are of the time of the
+Eighteenth Egyptian dynasty. On the other hand, bronze first appears in
+Egypt in the age of the Twelfth dynasty,[60] though it does not become
+common until the Hyksos predecessors of the Eighteenth dynasty had made
+themselves masters of the valley of the Nile. From about B.C.
+1600 onwards, enormous quantities of it were employed in the eastern
+basin of the Mediterranean and the adjoining lands, necessitating an
+equally large supply of tin. What the source of this tin may have been
+it is not my present purpose to inquire. But the persistence of the
+copper age in Babylonia, as well as in the tumuli of Askabad, east
+of the Caspian, indicates that the manufacture of bronze must have
+migrated from the north-west to the Babylonian plain. We find it first
+in Assyria, not in Babylonia, and it may well be that the Assyrians
+derived it from Armenia and the population of Cappadocia, where, as I
+shall show in a subsequent chapter, they had established colonies at an
+early period. At all events, the earliest examples of bronze yet met
+with were discovered by Dr. Schliemann in the Second prehistoric city
+at Troy.
+
+It was to this region that classical tradition referred the origin of
+working in iron. An analysis of the gold of the first six Egyptian
+dynasties submitted to Dr. Gladstone by Professor Petrie proved that
+it was mixed with silver, and hence must have been derived from Asia
+Minor.[61] Egyptian legend made “the followers of Horus,” who founded
+dynastic Egypt, metallurgists and smiths whose metal weapons enabled
+them to subdue the older neolithic population. The story as it has come
+down to us declares the smiths to have been workers in iron; iron,
+however, must be the substitute of the later version of the story for
+some other metal, since, though Vyse claims to have discovered an iron
+clamp in the great pyramid of Giza,[62] and Petrie has found a mass of
+iron in a Sixth-dynasty deposit in the temple of Osiris at Abydos,[63]
+ironsmiths can hardly have existed in the pre-dynastic age. It is
+probable, therefore, that copper was the metal which the dynastic
+Egyptians introduced into their new home, and which was already in use
+in Babylonia. But the intercourse with Asia Minor, which the gold of
+the First dynasty indicates must even then have been going on, makes it
+possible that it was from this quarter of the world that the earliest
+knowledge of the manufacture of bronze was brought to the valley of
+the Nile. Even in the time of the Twelfth dynasty, however, the tools
+found by Professor Petrie in the workmen’s huts at Kahûn are of copper
+rather than of bronze.[64] The colossal statue of King Pepi of the
+Sixth dynasty, discovered at Hierakonpolis, is of hammered copper, and
+we have to wait for the advent of the Eighteenth dynasty before bronze
+becomes the predominant metal.
+
+That such was the case points to the Hyksos period as that in which
+bronze succeeded in superseding the older copper. It may be that the
+Hyksos brought the extended use of it with them from Syria. In Southern
+Palestine, Mr. Macalister’s excavations at Gezer have shown that bronze
+rather than copper was largely employed throughout the so-called
+Amorite period, which went back to an earlier age than that of the
+Twelfth dynasty, and it is just here that in the time of the Eighteenth
+dynasty bronze itself began to make way for iron. Mr. J. L. Myres
+has recently traced the polychrome pottery of Southern Canaan to the
+Hittite lands of Cappadocia,[65] where the red ochre was found by which
+it was characterized, and a knowledge of bronze may have travelled
+along the same road.
+
+But these are speculations which may or may not be verified by future
+research. For the present we must be content with the fact that, in
+spite of the philological evidence to the contrary, copper, and not
+bronze, was the metal which preceded the use of iron in Babylonia,
+whereas in the northern kingdom of Assyria bronze was already known at
+a comparatively early date. So far as the existing evidence can carry
+us, it seems to indicate that Babylonia was the primitive home of the
+copper industry, while bronze, on the other hand, made its way eastward
+from Asia Minor and the north of Syria. Where bronze was first invented
+is still unknown to us; all that seems certain is that it must have
+been in a land where copper and tin are found together.
+
+
+                                 NOTE
+
+According to the mineralogists, in the western part of the northern
+hemisphere tin is found only in Britain, Spain and the neighbourhood
+of Askabad, the scanty surface-tin of Saxony, France and Tuscany being
+too poor and insignificant to have attracted attention in antiquity
+(see de Morgan, _Mission Scientifique au Caucase_, ii. pp. 16–28).
+The American excavations at Askabad under Professor Pumpelly appear to
+have made it clear that bronze was not invented in that part of the
+world, or indeed used in early days, and we are thus thrown back on
+Britain and Spain. It is quite certain, however, that bronze made its
+way to the west of Europe from the east, and the Hon. John Abercromby
+has proved (_Journal of the Anthropological Institute_, xxxii. pp.
+375–94, and _Proceedings of Society of Antiquaries of Scotland_,
+1903–4, pp. 323–410) that the bronze culture came to this country from
+the valley of the central Rhine where it cuts the river at Mayence. On
+the other hand, the bronze-age civilization of the Danube valley, the
+Balkan peninsula and Italy forms a whole with that of the south-eastern
+basin of the Mediterranean, which again is closely connected with
+the bronze-age culture of the Ægean, Asia Minor and Egypt, while the
+civilization of the Danube valley leads on to that of Central Europe
+and, to a less extent, of Scandinavia and Northern Germany. Montelius
+(_Journal of the Anthropological Institute_, 1900, pp. 89
+_sqq._) has pointed out that the early bronze culture of Northern
+Italy was carried to Scandinavia along the route of the amber trade as
+far back as the close of the neolithic age in Sweden, and the numerous
+objects of Irish gold found in Scandinavia--though, it is true, of
+somewhat later date--show that commercial relations must have existed
+between the British Islands and the Scandinavian peninsula. Tin might
+have followed the gold route until it met the amber route, by which it
+would have been carried southward to Central Europe and the Adriatic.
+
+In Western Europe the sword, like the socketed celt, is first met
+with in the third and last period into which the bronze age has been
+divided. The earliest examples of the sword, in fact, are those
+discovered at Mykenæ, which belong to the age of the Eighteenth
+Egyptian dynasty. Schliemann found only the dirk at Troy, and, so far
+as our present evidence goes, the dirk alone was used by the Hittites
+and Proto-Armenians down to the seventh century B.C. The
+scimitar, however, was known in Assyria and at Gezer at least as early
+as the fourteenth century B.C. (see p. 57 above), and in
+Cyprus the sword makes its appearance along with the knife and fibula
+in the later bronze age after the close of the age of copper. Similarly
+in Krete it was only in tombs of the Late Mykenæan (or Late Minoan)
+period that the cemetery of Knossos yielded swords of bronze (_Annual
+of the British School at Athens_, x. p. 4). The dirk of the copper
+age was stanged as at Troy and in the Danube valley, the Cyprian and
+Hungarian forms being practically identical. From the Danube valley the
+stanged spear-head passed to Western Europe during the second period
+of the bronze age. The fibula is not found at Troy, where the early
+bronze age will have corresponded with the copper age of Cyprus.
+
+All this goes to show (1) that the scimitar--the _harpê_ of
+the Perseus myth--was a Semitic invention, while the long sword was
+of European origin; (2) that at Troy, and possibly also in Southern
+Palestine, to which Hittite polychrome pottery was carried at an early
+date, bronze was known at a time when only copper was used in Cyprus
+and Egypt; and (3) that the characteristic weapon of this primitive
+bronze age was the dirk, which continued to characterize Asia Minor
+long after the sword and scimitar had been invented elsewhere. Taken
+in connection with the fact that the pottery and decorative designs
+of Asia Minor can be linked with those of the Balkan peninsula and
+the valley of the Danube, we may provisionally conclude that Northern
+Asia Minor was the home of the invention of bronze. Against this is
+the fact that no tin has hitherto been found there, and we should
+accordingly have to explain the origin of bronze by the theory that
+after the discovery of various processes for hardening copper, further
+experiments were made with imported tin. Unfortunately, neither the
+south of Cornwall nor Asia Minor, with the exception of the Troad, has
+as yet been scientifically explored from an archæological point of
+view. But it deserves mention that the curious needles with a double
+head of twisted wire, which are met with among the remains of the
+bronze age in Britain, are characteristic of the copper age in Cyprus
+and of the early bronze age at Troy.
+
+
+
+
+                              CHAPTER III
+
+                             THE SUMERIANS
+
+
+Among the first results of the decipherment of the Assyrian cuneiform
+inscriptions was one which was so unexpected and revolutionary, that
+it was received with incredulity and employed to pour discredit on
+the fact of the decipherment itself. European scholars had long been
+nursing the comfortable belief that the white race primarily, and
+the natives of Europe secondarily, were _ipso facto_ superior
+to the rest of mankind, and that to them belonged of right the
+origin and development of civilization. The discovery of the common
+parentage of the Indo-European languages had come to strengthen the
+belief; the notion grew up that in Sanskrit we had found, if not the
+primeval language, at all events a language that was very near to it,
+and idyllic pictures were painted of the primitive Aryan community
+living in its Asiatic home and already possessed of the elements of
+its later culture. Outside and beyond it were the barbarians, races
+yellow and brown and black, with oblique eyes and narrow foreheads,
+whose intelligence was not much above that of the brute beasts. Such
+culture as some of them may have had was derived from the white race,
+and perhaps spoilt in the borrowing. The idea of the rise of a
+civilization outside the limits of the white race was regarded as a
+paradox.
+
+It was just this paradox to which the first decipherers of Assyrian
+cuneiform found themselves forced. And another paradox was added to it.
+Not only had the civilization of the Euphrates and Tigris originated
+amongst a race that spoke an agglutinative language, and therefore was
+neither Aryan nor Semitic, the civilization of the Semitic Babylonians
+and Assyrians was borrowed from this older civilization along with the
+cuneiform system of writing. It seemed impossible that so revolutionary
+a doctrine could be true, and Semitic philologists naturally denounced
+it. For centuries Hebrew had been supposed to have been the language
+of Paradise, and the old belief which made the Semitic Adam the first
+civilized man still unconsciously affected the Semitic scholars of the
+nineteenth century. It was hard to part with the prejudices of early
+education, especially when they were called upon to do so by a small
+group of men whose method of decipherment was an enigma to the ordinary
+grammarian, and who were introducing new and dangerous principles into
+the study of the extinct Semitic tongues.
+
+The method of decipherment was nevertheless a sound one, and the
+result, which seemed so incredible and impossible when first announced,
+is now one of the assured facts of science. The first civilized
+occupants of the alluvial plain of Babylonia were neither Semites nor
+Aryans, but the speakers of an agglutinative language, and to them
+were due all the elements of the Babylonian culture of later days. It
+was they who first drained the marshes, and regulated the course of
+the rivers by canals, thereby transforming what had been a pestiferous
+swamp into the most fertile of lands; it was they who founded the
+great cities of the country, and invented the pictorial characters,
+the cursive forms of which became what we term cuneiform. The theology
+and law of later Babylonia went back to them, and long after Semitic
+Babylonian had become the language of the country, legal judgments were
+still written in the old language and the theological literature was
+still studied in it. The Church and the Law were as loth to give up the
+dead language of Sumer as they were in modern Europe to give up the use
+of Latin.
+
+This dead agglutinative language has been called sometimes Akkadian,
+sometimes Sumerian, but Sumerian is the name which has been finally
+selected. In fact, this was the name applied to it by the Semitic
+Babylonians themselves, who included in the term the two dialects--or
+rather the two forms of the language at different periods of its
+development--which have been preserved to us in the cuneiform tablets.
+Strictly speaking, the dialect which had been most affected by contact
+with the Semites, and had in consequence suffered most from phonetic
+decay, was known as the language of Akkad, but this was because Akkad
+represented Northern Babylonia, which had become Semitic at an earlier
+date than the south and had been the seat of the first great Semitic
+Empire.[66] Both names, Akkadian and Sumerian, are correct as applied
+to the primitive language of Chaldæa, but of the two Sumerian is
+preferable, not only because it was used by the Babylonian scribes
+themselves, but also because it denoted the oldest and purest form of
+the language before it had passed under foreign influence.
+
+This, then, was the great archæological fact which resulted from the
+decipherment of the Assyro-Babylonian texts. The earliest civilized
+inhabitants of Babylonia did not speak a Semitic language, and
+therefore presumably they were not Semites. It is perfectly true that
+language and race are not synonymous terms, and that we are seldom
+justified in arguing from the one to the other. But the Sumerian
+language is one of the exceptions which proves the rule. Those who
+spoke it were the first civilizers of Western Asia, the inventors and
+perfecters of a system of writing which was destined to be one of
+the chief humanizing agents of the ancient world, the authors of the
+irrigation engineering of the Babylonian plain, and the builders of
+its many cities. The language they spoke, accordingly, could not have
+been forced upon them by conquerors who have otherwise left no trace
+behind them, and they certainly would not have exchanged it of their
+own accord for their native tongue. The Semitic languages have always
+been conspicuous for the tenacity with which they have held their own,
+and the conservatism with which they have resisted change. We may still
+hear in the Egyptian Arabic of to-day the very words which were written
+by Semitic Babylonian scribes upon their tablets some four or five
+thousand years ago. A Semitic people would have been the last to borrow
+the language of its less-civilized neighbours without any assignable
+reason. The fact, consequently, that the pioneers of Babylonian culture
+spoke an agglutinative language fully justifies us in concluding that
+they belonged to a race that was not Semitic.
+
+Sumerian, however, was not the only language in the neighbourhood of
+the Babylonian plain which was agglutinative. Further to the east,
+in the highlands of Elam, other agglutinative languages were spoken,
+monuments of one or more of which have been preserved to us. Whether or
+not the agglutinative languages of Elam were related to the Sumerian
+of Babylonia, I cannot tell; so far as our materials go at present
+they do not warrant us in saying more than that, like Sumerian, they
+were of the agglutinative type. It is only rarely that the scientific
+philologist is able to separate some of the multitudinous languages of
+the globe into genealogically related groups; for the most part they
+stand isolated and apart from one another, and, however much we may
+wish to group them together, it is seldom that we find such proofs of
+a common descent as will satisfy the requirements of science. Families
+of speech--or at all events such as can be scientifically proved to be
+so--are the exception and not the rule.
+
+Eastward of Sumer the type of language was thus agglutinative, as it
+was in Sumer itself. And in the days when civilization first grew up
+there, there is no sign or trace of the languages we call inflectional.
+The speakers of Aryan dialects, whom we find in classical times in
+Media or Persia or North-Western India, belong to a later epoch; the
+old belief in the Asiatic cradle of the Aryan tongues has long since
+been given up by the anthropologist and comparative philologist,[67]
+and it is recognized that if we are to look for it anywhere it must
+be in Eastern Europe. The Semitic languages are equally absent; the
+tide of Semitic speech which eventually overflowed Babylonia, surged
+northward and eastward into Assyria and Elam, but never succeeded in
+passing Susiana, and was finally driven again from the ground it had
+once gained there. The home of the Semite lay to the west and not to
+the east of the Babylonian plain. Babylonian culture owed its origin to
+a race whose type of language was that of the Finn, of the Magyar or
+the Japanese.
+
+The physical characteristics of this race cannot as yet be fully
+determined. The oldest sculptures yielded by Babylonian excavation
+belong to a time when the Semite was already in the land. It might
+be supposed that the early monuments of Tello, which were erected by
+Sumerian princes and go back to Sumerian times, would give us the
+necessary materials; but not only are they too rude and infantile
+to be of scientific use, they also indicate the existence of two
+ethnological types, one heavily bearded, the other beardless, with
+oblique eyes and negrito-like face. It is not until we come to the
+age of Semitic domination that sculpture is sufficiently realistic
+for exact anthropological purposes. At the same time, there was to
+the last a marked contrast of both form and feature in the artistic
+representation of the Babylonian and his more purely Semitic Assyrian
+neighbour. The squat, thick figure, the full, well-shaven cheeks, the
+large, almond-shaped eyes and round head of King Merodach-nadin-akhi in
+the twelfth century B.C. still reproduce the characteristic
+form and features of the statues found in the palace of Gudea, the
+Sumerian high-priest of Lagas, who lived more than a thousand years
+before. The aquiline or hooked nose, the thick lips and muscular limbs
+which distinguished the Assyrian are generally wanting in Babylonia.
+And, on the other hand, there is a likeness between the Babylonian
+as he is portrayed on the monuments and the Elamite adversaries of
+Assur-bani-pal, some of whom, it is noticeable, are depicted with
+beards, though the excavations of Dieulafoy and de Morgan at Susa
+have shown (according to Quatrefages and Hamy) that a beardless and
+short-nosed negrito type with round heads was aboriginal in Elam. The
+same type is reproduced in one of the heads found at Tello, and M.
+de Morgan has pointed out that similar brachycephalic and beardless
+negritos are represented on the monuments of Naram-Sin as serving in
+the army of Akkad.[68] We may conclude, therefore, that they still
+formed a part of the population of Northern Babylonia even in the age
+when it had passed completely under Semitic rule. Indeed, Dr. Pinches
+has shown that the pure Semitic type is not depicted in Babylonian art,
+outside the kingdom of Akkad, “before the time of the First dynasty of
+Babylon, which began to reign about B.C. 2300.”
+
+It has often been maintained that the Sumerians themselves were an
+immigrant people, who had descended from the mountains of Elam. There
+is nothing unreasonable in the supposition; it was always difficult
+to prevent the mountaineers of Elam from making raids in Babylonia,
+and one of their tribes succeeded in settling in the country and
+establishing at Babylon one of the longest-lived of its dynasties. But
+the supposition mainly rests upon two facts. The pictorial hieroglyphs
+out of which the cuneiform characters have developed had no special
+sign for “river,” while the same character represented both “mountain”
+and “country.” It would seem, therefore, that the land in which the
+cuneiform system of writing was first invented was just the converse of
+the Babylonian plain, being at once mountainous and riverless. That the
+same character means both “mountain” and “country” is no doubt a strong
+argument in favour of the Elamite origin of Babylonian civilization.
+That the use of the primitive hieroglyphs should have survived in Elam
+while it was lost in Babylonia, as M. de Morgan’s discoveries have
+shown to be the case, is also another fact which may perhaps be claimed
+on the same side; at any rate it indicates that they were known to the
+Elamites before the cursive cuneiform had developed out of them. But
+the want of a special character for “river” is not so decisive as it
+appears at first sight to be. The word “river” is represented by two
+ideographic signs which literally signify “the watery deep,” and so
+point to the fact that those who originally invented them lived not in
+the highlands of the East, but on the shores of that Persian Gulf which
+the Babylonians of the historic period still called “the deep.” As it
+was also known as “the salt river,” it is not difficult to understand
+how, to those whose experience of navigable water had been confined
+to the Persian Gulf, the Tigris and Euphrates would have seemed but
+repetitions of the Gulf on a smaller scale.[69]
+
+The rise of Sumerian culture on the shores of the Persian Gulf is in
+accordance with Babylonian tradition. Babylonian myths told how Oannes
+or Ea, the god of culture, had risen each morning out of his palace
+in “the deep,” bringing with him the elements of civilization which
+he communicated to mankind. Letters, science and art had all been
+his gifts. He had instructed the wild tribes of the coast to build
+houses and erect temples; he had compiled for them the first law-book,
+and had instructed them in the mysteries of agriculture. Babylonian
+civilization was sea-born. The system of cosmology which finally won
+its way to acceptance with the priesthood and philosophers of Babylonia
+was one which had been first conceived at Eridu, the site of which is
+now more than a hundred miles distant from the sea, but in the early
+days of Babylonian history, before the silting up of the shore, had
+been its seaport. Here the first man Adam[70] was supposed to have
+lived, and to have spent his time fishing in the waters of the Gulf.
+The whole earth was believed to have grown out of a primeval deep like
+the mud-flats which the inhabitants of Eridu saw slowly emerging from
+the retreating sea. Philosophy and cosmology, with the theology with
+which they were associated, looked back upon Eridu and the Babylonian
+coast as their primeval home.[71]
+
+In fact the physical conditions of the Babylonian plain rendered it
+impossible for the first culture of the country to have sprung up in
+it. Before it was reclaimed by engineering skill and labour the larger
+part of it had been a pestiferous marsh. The science needed for making
+it habitable, at least by civilized man, must have arisen outside its
+boundaries. Only when he was already armed with a civilization which
+enabled him to dig canals, to mould bricks, and pile his houses and
+temples on artificial foundations could the Sumerian have settled in
+the Babylonian plain and there developed it still further. The cities
+of the plain grew up each round its sanctuary, which became a centre of
+civilization and progress, of agriculture and trade. But the builders
+of the sanctuaries must have brought their culture with them from
+elsewhere.
+
+Of these sanctuaries the most venerable was that of Bel the Elder at
+Nippur. It has been systematically excavated by the Americans down to
+its foundations, and the successive strata of its history laid bare.
+Inscribed objects have been found in all the strata, carrying the
+history of the cuneiform system of writing back to the days when the
+temple was originally built. But it is still the cuneiform system of
+writing as far back as we can go, that is to say the characters are the
+cursive forms of earlier hieroglyphic pictures, the features of which
+are in most cases scarcely traceable. Here and there, it is true, the
+primitive pictorial form has been preserved, but this is the exception
+and not the rule. As a rule the earliest writing found at Nippur, and
+coeval with the foundation of its temple, is already the degenerated
+and cursive hand which we call cuneiform.
+
+The fact is very noteworthy. The cuneiform characters have assumed the
+shapes which give them their name owing to their having been inscribed
+on clay by a stylus of wood or metal, which obliged the writer to
+substitute a series of wedge-like indentations for curves and straight
+lines. As time went on, the number of the wedges was reduced, the forms
+of the characters were simplified, and the resemblance to the pictures
+they were once intended to represent became more and more indistinct.
+The cuneiform script is, in short, a running hand, like the hieratic
+of Egypt. But whereas in Egypt the hieratic running hand does not
+come into common use until long after the beginning of the monumental
+period, while the pictorial hieroglyphs continued to be employed to
+the last, in Babylonia the cuneiform running hand has superseded the
+primeval pictures as far back as our records carry us. When the temple
+of Nippur was built--and it was probably one of the first, if not the
+first, to be built in the Babylonian plain--the clay tablet was already
+in use for writing purposes, and the cursive cuneiform had taken the
+place of the older hieroglyphs.
+
+The Babylonian plain was called by its Sumerian inhabitants the Edin,
+or “Plain,” a name which was borrowed by the Semites and has been made
+familiar to us by the book of Genesis. Originally it had meant all
+the uncultivated flats on either side of the Euphrates, but it soon
+acquired the sense of the country as opposed to the city, and so of the
+cultivated plain itself. Most of the important Babylonian cities were
+built in it between the Euphrates on the west and the Tigris on the
+east. A few only lay beyond it on the western bank of the Euphrates.
+One of these was Eridu, another was Ur, a third was Borsippa.
+
+  [Illustration:
+
+      THE TELL OF BORSIPPA, THE PRESENT BIRS-NIMRUD.]
+
+Of Eridu I have already spoken. Some six or eight thousand years
+ago it was the seaport of primitive Babylonia.[72] Ur, which stood
+close to it, seems to have been a colony of Nippur, and therefore of
+comparatively late origin.[73] Borsippa was a small and unimportant
+town, which eventually became a suburb of Babylon, and Babylon, on
+the eastern bank of the Euphrates, was itself a colony of Eridu.[74]
+Hence of the cities which stood outside the Edin of Babylonia, and may
+therefore belong to an age when Babylonian civilization was still in
+its infancy, Eridu alone is of account. And the priority even of Eridu
+was contested. Traditionally Sippara, which is expressly stated to have
+been in “the Edin,” claimed to be the oldest of Babylonian cities; one
+quarter of it bore the name of “Sippara that is from everlasting,” and
+like Eridu, it believed itself to have been the abode of the first
+man.[75] Thus far, however, the monuments have given us nothing to
+substantiate the claim; the culture-god of Babylonia was Ea of Eridu,
+not the Sun-god of Sippara, and for the present, therefore, we must
+look to the shore of the Persian Gulf, rather than to the “land of
+Eden” for the cradle of Babylonian civilization.
+
+At any rate, both Sippara and Eridu were of Sumerian foundation, as
+indeed were nearly all the great cities of Babylonia. Eridu was a later
+form of the older Eri-dugga, “the good city,” a name which seems to
+have been the starting-point of more than one legend. The growth of the
+coast to the south of it gives us some idea as to the age to which its
+foundation must reach back.
+
+It was, as I have said, the primitive seaport of Babylonia, and its
+legend of the first man Adamu made him a fisherman in the Persian Gulf.
+Its site is now rather more than a hundred miles distant from the
+present line of coast. The progress of alluvial deposit brought down by
+the Euphrates and Tigris can be estimated by the fact that forty-seven
+miles of it have been formed since Spasinus Charax, the modern
+Mohammerah, was built in the age of Alexander the Great, and was for a
+time the port of Chaldæa. During the last 2000 years, accordingly, the
+rate of deposit would seem to have been about 115 feet a year. This,
+however, does not agree with the observations of Loftus, who made the
+rate not more than a mile in every seventy years,[76] while on the
+other hand Sir Henry Rawlinson adduced reasons for believing it to have
+been more rapid in the past than it is to-day, and that consequently
+the rate must once have been as much as a mile in thirty years.[77] It
+is desirable that some competent geologist should study the question
+on the spot. Taking, however, as a basis of calculation, the one known
+fact of the rate of growth since the foundation of Spasinus Charax, and
+bearing in mind that before the junction of the Tigris and Euphrates
+the rate of advance must have been comparatively slow, we should have
+to go back to about B.C. 5000 as the latest date at which
+Eridu could still have been the seaport of the country.
+
+Was it here that the system of writing which was so closely entwined
+with the origin of Babylonian civilization was first invented?
+Babylonian tradition in later days certainly believed that such was the
+case, and the fact that Ea of Eridu was the culture-god of Babylonia
+is strongly in its favour. But there are difficulties in the way.
+Eridu was the home of the “white witchcraft” of early Chaldæa; it was
+here that the charms and incantations were composed which gave the
+priesthood of Eridu its influence, and made the god they worshipped
+the impersonation of wisdom. The belief that he was the originator of
+Babylonian culture may have had its source in the system of magic which
+was associated with his name. Eridu was built on the Semitic side of
+the Euphrates, and the Semitic tribes who received their letters and
+their civilization from the Sumerians of Eridu would naturally have
+looked upon the city of their teachers as the primeval home of Sumerian
+culture. The traditions that made Eridu the starting-point of Sumerian
+civilization could thus be explained away, and we should be left free
+to settle the question of its origin upon purely archæological evidence.
+
+Unfortunately the site of Eridu has not yet been systematically
+excavated. Once again the archæological materials for settling an
+archæological question are not at hand, and we are thrown back upon an
+examination of the picture-writing from which the cuneiform characters
+are derived. Here the evidence on the whole may be said to be in
+favour of tradition. It is true that there is no special ideograph for
+“river,” but there is one for “the deep,” and “the spirit of the deep”
+must have been a chief object of worship at the time when the primitive
+hieroglyphs were first formed. The “ship,” too, played a prominent
+part in the life of their inventors, and the picture of it represented
+it as moved not by oars but by a sail.[78] The flowering reed was
+equally prominent, and was even used to symbolize what stood firm and
+established.[79] Houses, fortresses, temples, and cities were built of
+brick, and vases were moulded out of clay.[80] The tablet, rectangular
+or square, was already employed for the purpose of writing, but as it
+was provided with a handle or a couple of rings at the top, I think
+it was more probably of wood than of clay. The sheep, goat and ox were
+domesticated,[81] and so also probably was the ass,[82] and corn was
+cultivated in the fields. The symbol of the “earth” appears to have
+been the picture of an island of circular or elliptical form. Among
+trees the cedar was well known.
+
+All this points to the sea-coast of Babylonia as the district in which
+its civilization first arose. But on the other hand, there is the fact
+that “country” and “mountain” are alike represented by the picture of
+a mountainous land. There is also the fact that the land in which the
+inventors of the hieroglyphs lived was one in which copper, gold and
+silver were procurable--perhaps also meteoric iron; and the further
+fact that hard wood was sufficiently plentiful for tools or weapons to
+have been made of it before the employment of metal. That they should
+have been made of wood, however, and not of stone, is a strong argument
+in favour of the Babylonian coast.
+
+It is on wood, moreover, that the first hieroglyphs must have been
+painted or cut. Many of them represented round objects or were
+formed of curved lines, which were transformed into a series of
+wedge-like indentations when imprinted by a stylus upon clay. We
+know, therefore, that clay was not the original writing material;
+its use as such, in fact, is coeval with the rise of that cursive
+script which, in the case of the Egyptian hieroglyphics, is called
+hieratic, but in Assyro-Babylonian is known as cuneiform. It was the
+attempt to reproduce the old pictures upon clay that created the
+cuneiform characters. As metal is not likely to have been employed
+by the primitive scribes of Chaldæa, and there is no trace of stone
+having been used--even the stone cylinder of later days being called
+a _dup-sar_ or “written tablet”--we are left to choose between
+wood and papyrus. In favour of papyrus is the fact that the circular
+forms of so many of the pictures suggest that they were originally
+painted rather than engraved; on the other hand, it is doubtful whether
+the papyrus grows in the Babylonian rivers, or at any rate did so
+in the prehistoric age. And the pictograph of a “written document”
+is not a strip or roll of papyrus, as in Egypt, but a tablet with a
+handle or loop. It is true that the primeval picture which denoted
+“copper” has much the same form, but as even cutting instruments had
+the determinative of “wood” attached to them in the early picture
+writing, it is clear that the original tablet could not have been of
+metal, whatever might have been the case with its later successors.
+The picture, moreover, of the “tablet” is distinguished from that of
+a “plate of bronze” by the addition of a string which is tied to the
+handle.
+
+On the whole, therefore, the only archæological evidence available at
+present is on the side of the tradition which made Babylonian culture
+move northward from the coast. The only fact against it of which I know
+is that, as I have already stated, the word for land was symbolized by
+the picture of a triple mountain. But this fact is not insuperable.
+Before the silting up of the shore, the old coast-line of Babylonia
+would have stretched away north-eastward of Eridu towards the mountains
+of Elam. Whether the mountains that fringed what would then have been
+the eastern coast of the Persian Gulf are visible from the site of
+Eridu, I do not know; if the clear light of Upper Egypt exists there
+they would be so. Nor do I know whether on the western side there
+are mountain ranges visible in Arabia; these are points which can be
+cleared up only when the country has been thoroughly explored.
+
+Eridu lay five miles southward of Ur,[83] that “Ur of the Chaldees”
+from which Hebrew history affirmed the ancestor of the nation had
+come. Ur was never a maritime port like Eridu; it stood on the Arabian
+plateau and looked towards the west. Its face was turned to the Semitic
+rather than to the Sumerian world. From the first, therefore, it must
+have been in touch with Semitic tribes. And a curious reminiscence
+of the fact survived in the western Semitic languages, Ur or Uru
+signifies “the city”; it was a Sumerian word, another form of which was
+_eri_. The word was borrowed by the Semites, and in the Hebrew
+of the Old Testament, accordingly, the idea of “city” is expressed by
+_’îr_. The Assyrians of the north, whose vocabulary was otherwise
+so full of Sumerian loan-words, preferred the native _âlu_, “a
+tent,” to which the meaning of “city” was assigned when Sumerian
+culture had been passed on to the Semitic race and the tent had been
+exchanged for the city. The history of the word is a history of early
+culture as well.
+
+But I am far from saying that it was through Ur that the civilization
+of Sumer came to be handed on to its Semitic neighbours. On the
+contrary, such facts as there are point in a different direction.
+Western Semites, whom linguistically we may call Arabs or Aramæans, or
+Canaanites or Hebrews, doubtless mingled with the Sumerian population
+of Ur, and adopted more or less of its manners and civilization, but it
+was further north, in the Babylonian Eden itself, that the Semite first
+came under the influence of the higher culture, and soon outstripped
+his masters in the arts of life.
+
+The entrance of the Semitic element into Babylonia is at present one of
+the most obscure of problems. All we can be sure of are certain main
+facts. First of all, as we have seen, the early culture of Babylonia,
+including so integral a part of it as the script, was of Sumerian
+origin. So, too, were the great cities and sanctuaries of the country,
+as well as the system of irrigation engineering which first made it
+habitable. Sumerian long continued to be the language of theology and
+law; indeed a large part of the Babylonian pantheon of later days
+was frankly non-Semitic. As was inevitable under such conditions,
+the Assyrian language contained an immense number of words--many of
+them compound--which were borrowed from the older language, and its
+idioms and grammar equally showed signs of Sumerian influence. I have
+sometimes been tempted, from a scientific point of view, to speak of
+Semitic Babylonian as a mixed language.
+
+On the other hand, if the elements of Babylonian civilization were
+Sumerian, the superstructure was Semitic. When the Semites entered into
+the heritage of Sumerian culture, the cuneiform script must have still
+been in a very inchoate and immature state. Its pictorial ancestry must
+still have been clear, and no scruples were felt about altering or
+adding to the characters. The phonetic application of the characters,
+which was still in its initial stage in the Sumerian period, was
+developed and carried to perfection by the Semitic scribes, and a very
+considerable proportion of their values and ideographic meanings is of
+Semitic derivation. The theological system was transformed, and a new
+literature and a new art came into existence. As Sumerian words had
+been borrowed by the Semites, so, too, Semitic words were borrowed by
+the Sumerians, and it is possible that examples of them may occur in
+some of the oldest Sumerian texts known to us.[84] The Babylonians of
+history, in short, were a mixed people; and their culture and language
+were mixed like our own.
+
+This, then, is one main fact. A second is that the Semitic element
+first comes to the front in the northern part of Babylonia. It is in
+Akkad, and not in Sumer, that the first Semitic Empire--that of Sargon
+the Elder, B.C. 3800--had its seat, and old as that empire
+is, it presupposes a long preceding period of Semitic settlement and
+advance in power and civilization. The cuneiform system of writing
+is already complete and has ceased to be Sumerian, archive-chambers
+of Semitic literature are founded, and Semitic authority is firmly
+established from Susa in the east to the Mediterranean in the west.
+Art is no longer Sumerian, and in the hands of the Semitic subjects of
+Sargon and his son Naram-Sin has reached a perfection which in certain
+directions was never afterwards surpassed. The engraved seal-cylinders
+of the period are the finest that we possess. Naturally the Semitic
+language has superseded the Sumerian in official documents, and the
+physical type as represented on the monuments is also distinctly
+Semitic. At the beginning of the fourth millennium before our era, the
+civilization and culture of Northern Babylonia have thus ceased to be
+Sumerian, and the sceptre has fallen into the hands of a Semitic race.
+
+But there is a third fact. The displacement of the Sumerian by the
+Semite was the case only in Northern Babylonia. In the south, in the
+land of Sumer, the older population continued to be dominant. Sumerian
+dynasties continued to rule there from time to time, and the old
+agglutinative language continued to be spoken. When a West-Semitic
+dynasty governed the country about B.C. 2200, state proclamations
+and similar official documents had still to be drawn up in the two
+languages, Semitic Babylonian and Sumerian. Sumerian did not become
+extinct till a later day. Indeed, after the fall of the empire of
+Sargon of Akkad there seems to have been a Sumerian reaction. While
+Susa was lost to the Semites and became the capital of a non-Semitic
+people who spoke an agglutinative language, the power of the Sumerian
+princes in Southern Babylonia appears to have revived. At all events
+even the dynasty which followed that of the West-Semites bore
+Sumerian names.[85] It was only under the foreign domination of the
+Kassites, apparently, who governed Babylonia for nearly 600 years,
+that the Sumerian element finally became merged in the Semitic and the
+Babylonian of later history was born.
+
+  [Illustration: THE SEAL OF SHARGANI-SHAR-ALI (SARGON OF AKKAD):
+  GILGAMES WATERS THE CELESTIAL OX.]
+
+  [Illustration: BAS-RELIEF OF NARAM-SIN.]
+
+The last fact is that while what we call Assyrian is Semitic Babylonian
+with a few dialectal variations, it stands apart from the other Semitic
+languages. A scientific comparison of its grammar with those of the
+sister-tongues leads us to believe that it represents one of the two
+primeval dialects of the Semitic family of speech, the other dialect
+being that which subsequently split up into the varying dialects of
+Canaanite or Hebrew, Arabic, South-Arabic and Aramæan--or, adopting
+the genealogical form of linguistic relationship, Assyro-Babylonian
+would have been one daughter of the primitive parent-speech, while the
+other daughter comprised the remaining Semitic languages.[86] There
+are two conclusions to be drawn from this; one is that the Babylonian
+Semites must have separated from their kinsfolk and come under Sumerian
+influence at a very early period, the other that they moved northward,
+along the banks of the Tigris into Assyria.
+
+With these two inferences we have to be content. Upon the first home
+of the Semitic race or its affinities with other branches of the white
+race, Babylonia can naturally throw no light. The earliest glimpses
+we catch of the Semites of Babylonia are those of a people who have
+already come under the influences of Sumerian civilization, who are
+mingling with their teachers and helping with them to build up the
+stately edifice of historical Babylonia. There were ruder Semitic
+tribes, it is true, who continued to live their own nomad life on the
+western bank of the Euphrates or in the marshes that bordered the
+Persian Gulf. But like the Bedâwîn of to-day on the outskirts of Egypt
+they were little, if at all, affected by the civilization at their
+sides. They remained the same wild savages of the desert as their
+descendants who encamp in the swamps of modern Babylonia; they neither
+traded nor tilled the ground, and the language they spoke was not the
+same as that of their Babylonian kindred. They served, however, as the
+herdsmen and shepherds of their Babylonian neighbours, and the vast
+flocks whose wool was so important an article of Babylonian trade, were
+entrusted to their care. But Bedâwîn they were born, and Bedâwîn they
+continued to be.
+
+Even the Aramæan tribes of the coast-land kept apart from the
+Babylonians, whether Sumerian or Semitic, until the day when one of
+their tribes, the Kaldâ or Chaldæans, made themselves masters of
+Babylon under their prince Merodach-baladan, and from henceforward
+became an integral factor in the Babylonian population. They must
+have settled on the borders of Babylonia at a comparatively late
+date, when Semitic Babylonian had definitely marked itself off from
+its sister-tongues and the Babylonian Semite had acquired distinctive
+characteristics of his own. The West-Semitic elements in the
+population of Babylonia could have entered the country only long after
+the mixture of Sumerian and Semite had produced the Babylonian of
+history.
+
+The Babylonian of history came to forget that he had ever had another
+fatherland than the Babylonian plain, the Eden of the Old Testament,
+the land whose southern border was formed by “the salt river” or
+Persian Gulf of early Sumerian geography, with its four branches
+which were themselves “heads.” Here the first man Adamu[87] had been
+created in Eridu, “the good city,” and here therefore the Babylonian
+Semite placed the home of the first ancestor of his race. But it was a
+borrowed belief, borrowed along with the other elements of Babylonian
+culture, and no argument can be drawn from it as to the actual cradle
+of the Semitic race. Like the story of the deluge, it was part of the
+Sumerian heritage into which the Semite had entered.
+
+The Semitic tradition which made the first man a tiller of the ground
+may also have been borrowed from the earlier inhabitants of Babylonia.
+At all events it is significant that the garden in which he was
+placed was in the land of Eden, and that the picture of a garden or
+plantation is one of the primitive hieroglyphs of Sumer. The beginnings
+of Babylonian civilization were bound up with the cultivation of the
+Babylonian soil; the reclamation of the great alluvial plain was at
+once the effect and the cause of Sumerian culture. Sumerian culture, in
+fact, was at the outset essentially that of an agricultural people.
+
+Trade would have come later, when Eridu had become a seaport, and
+ships ventured on the waters of the Persian Gulf. It grew up under the
+shelter of the great sanctuaries. Supported at first by the labour
+of their serfs, the priests in time came to exchange their surplus
+revenues--the wool of their sheep, the wheat and sesame of their
+fields, or the wine yielded by their palms--for other commodities, and
+the temples themselves formed safe and capacious store-houses in which
+such goods could be kept. In the historical period Babylonia is already
+a great trading community, and as the centuries passed trade absorbed
+more and more the energies of its population, agriculture fell into the
+background, and the Babylonia conquered by Cyrus could be described
+with truth as “a nation of shopkeepers.” Even the crown prince was a
+merchant who dealt in wool.[88]
+
+The increasing preponderance of trade goes along with the increasing
+preponderance of the Semitic element in the country, and it is
+tempting to suppose that there was a connection between the two. At
+present, however, there is no positive evidence that such was the case.
+Nor is there any positive evidence that the Semites who settled in
+Babylonia were not already agriculturists. The circumstances in which
+a people lives are mainly responsible for its being agricultural or
+pastoral, and the fact that the Bedâwîn neighbours of the Babylonians
+on the western side of the Euphrates remained a pastoral race does
+not exclude the possibility that there were other branches of the
+Semitic family who had already passed out of the pastoral into the
+agricultural stage before coming into contact with the Sumerians. On
+the other hand, it is at least noticeable that in Semitic Babylonian
+the usual word for “city” continued to be one which properly meant a
+“tent”--the home of the pastoral nomad--and that no Semitic traditions
+have come down to us of the beginnings of agricultural life outside the
+limits of the Babylonian “Plain.” The title of “Shepherd,” moreover,
+was at times given to the Babylonian kings in days subsequent to the
+Semitic Empire of Sargon of Akkad. So far as our materials allow us to
+judge, city-life was the gift of the Sumerian to the primitive Semitic
+nomad.[89]
+
+To the Semite, however, I believe I have shown in my Lectures on
+Babylonian religion,[90] we must ascribe an important theological
+conception. In historical Babylonia the gods were conceived of in
+the form of man. Man was created in the image of God because the gods
+themselves were men. But the conception cannot be traced back further
+than the age when the Sumerians and Semites came into contact with one
+another. In pre-Semitic Sumer there are no anthropomorphic gods. We
+hear, instead, of the _zi_ or “spirit,” a word properly signifying
+“life” which manifested itself in the power of motion. All things
+that moved were possessed of life, and there was accordingly a “life”
+or “spirit” of the water as well as of man or beast. In place of the
+divine “lord of heaven” whom the Semites adored there was “a spirit of
+heaven”; in place of Ea, the later Babylonian god of the deep, there
+was “a spirit of the abyss.” Sumerian theology, in fact, was still on
+the level of animism, and the inventors of the script represented the
+idea of “god” by the picture of a star. Vestiges of the old animism can
+still be detected even in the later cult: by the side of the human gods
+an Assyrian prayer invokes the mountains, the rivers and the winds,
+and from time to time we come across a worship of deified towns. It
+was the town itself that was divine, not the deity to whom its chief
+temple was dedicated. So, again, the god or goddess continued to be
+symbolized by some sacred animal or object whose figure appears upon
+seals and boundary-stones, and in some cases we learn that the Sumerian
+prototypes of the later Babylonian divinities bore such names as “the
+gazelle,” “the antelope” or “the bull.”
+
+With the advent of the Semite all is changed. The gods have become men
+and women with intensified powers and the gift of immortality, but in
+all other respects they live and act like the men and women of this
+nether world. Like them, too, they are born and married, and the court
+of the early prince finds its counterpart in the divine court of the
+supreme Bel, or “Lord.” The Semitic god of Babylon was “lord of gods”
+and men, of heaven and earth; Assur of Assyria was “king of the gods”
+and lord of “the heavenly hosts.”
+
+It was natural that, corresponding with this lord of the heavenly
+hosts, there should be a lord of the hosts of earth, and that as the
+divine king was clothed in the attributes of man, the human king should
+take upon him the divine nature. Like the Pharaohs of Egypt or the
+emperors of Rome, the early kings of Semitic Babylonia were deified.
+And the deification took place during their lifetime,--in fact, so far
+as we can judge, upon their accession to the throne. In the eyes of
+their subjects they were incarnate deities, and in their inscriptions
+they give themselves the title of god. One of them is even called “the
+god” of Akkad, his capital.[91]
+
+Here, then, in the conception of the divine, we have a clear dividing
+line between the Semite and his non-Semitic predecessor. So far back as
+the cuneiform monuments allow us to carry his history, the Semite is
+anthropomorphic. As a consequence, the gods he worships conform to the
+social conditions under which he lives. In the desert the sacred stone
+becomes “the temple of the god”; in the organized monarchy of Babylonia
+each deity takes his appointed place in an imperial court. Under the
+one supreme ruler there are princes and sub-princes, vice-regents and
+generals, while angel-messengers carry the commands of Bel to his
+subjects on earth, like the messengers who carried the letters of the
+Babylonian king along the high-roads of the empire. On the other hand,
+the earthly king receives his power and attributes from the god whose
+adopted son and representative he claims to be. Nowhere has “the divine
+right of kings” been more fully insisted on than in ancient Babylonia.
+The laws of the monarch had to be obeyed, foreign nations had to become
+his vassals, because he was a god on earth as the supreme Bel was god
+in heaven.
+
+But the reflection of the divine upon the human brought with it not
+only the exaltation of sovereignty, but also the rise of a priesthood.
+There were priests of a sort in Sumer of whom many different classes
+are enumerated. But when we examine the signification of the names
+attached to them we find that they were not priests in the true sense
+of the word. They were rather magicians, sorcerers, wizards, masters
+of charms. They do not develop into priests until after the Semite has
+entered upon the scene. The god and the priest make their appearance
+together.
+
+I do not think, however, that we are justified in concluding that the
+elaborate hierarchy of Babylonia was of purely Semitic origin. On the
+contrary, like the theological system with which it was associated,
+it was a composite product. Behind the gods and goddesses of Semitic
+Babylonia lay the primitive “spirits” and fetishes of Sumer; its
+mythology and cosmological theories rested on Sumerian foundations;
+and in the same way the priestly hierarchy was the result of a racial
+amalgamation in which the Semitic element had adopted and adapted the
+ideas and institutions of the older people. We do not find the theology
+and priesthood of Babylonia among other Semitic populations, except
+where they had been borrowed from the Babylonians (as in Assyria); in
+the form in which we know them they were peculiarly and distinctively
+Babylonian. Like the language of Semitic Babylonia, which is permeated
+with Sumerian elements, or the script, which is a Semitic adaptation of
+the Sumerian system of writing, they presuppose a mixture of race.
+
+The priesthood eventually proved irreconcilable with “the divine
+right” of the monarch, though both alike had the same origin. The
+priests prevailed over the king, and as in England the doctrine of
+divine right was unable to survive the accession of a German line
+of princes, so in Babylonia the accession of a foreign, non-Semitic
+dynasty (that of the Kassites) dealt a death-blow to the belief in a
+deified king. The king became merely the representative and deputy
+of the divine “Lord” of heaven, deriving his right to rule from his
+adoption by the god as a son; Bel-Merodach came to be regarded as the
+true ruler of Babylonia, lord of the earth as well as of the heavens,
+and a theocratic state affords but little room for a secular king.
+The priests of Bel decided whom their god should recognize or not,
+and little by little the controlling power of the state passed into
+their hands It was in a sense a triumph for the non-Semitic element
+in the population. While the deification of the sovereign may be said
+to have been purely Semitic in its origin, the necessary corollary of
+an anthropomorphic conception of the deity, the supernatural powers
+supposed to be inherent in the priesthood went back to Sumerian times.
+It was because he had once been a master of spells that the priest of
+the anthropomorphic god could influence the spiritual world. The final
+triumph of the theocratic principle in Babylonia, where the Semite
+had been so long dominant, showed that the old racial element was
+still strong, and ready to reassert itself when the favourable moment
+arrived. Such, indeed, is generally the history of a mixed people: the
+conquering or immigrant race may seem to have suppressed or absorbed
+the earlier population of the country, but as generations pass the
+foreign element becomes weaker, and the nation in greater or less
+degree reverts to the older type.
+
+
+                                 NOTE
+
+So far as the primitive culture of Sumer may be recovered from such
+of the primitive pictographs as can be at present identified, it may
+be described as follows. The inventors of them lived on the sea-coast
+within sight of mountains, but in a marshy district where reeds
+abounded. Trees also grew there, and the cedar was known. Stone was
+scarce, but was already cut into blocks and seals. Tablets were used
+for writing purposes, and copper, gold and silver were worked by the
+smith. Daggers with metal blades and wooden handles were worn, and
+copper was hammered into plates, while necklaces or collars were made
+of gold. Brick was the ordinary building material, and with it cities,
+forts, temples and houses were constructed. The city was provided with
+towers and stood on an artificial platform; the house also had a
+tower-like appearance. It was provided with a door which turned on a
+hinge, and could be opened with a sort of key; the city gate was on a
+larger scale, and seems to have been double. By the side of the house
+was an enclosed garden planted with trees and other plants; wheat and
+probably other cereals were sown in the fields, and the shaddûf was
+already employed for the purpose of irrigation. Plants were also grown
+in pots or vases. That floods took place is evident from the existence
+of a pictograph denoting “inundation,” and representing a fish left
+stranded above the foliage of a tree. Canals or aqueducts had already
+been dug. The sheep, goat, ox and probably ass had been domesticated,
+the ox being used for draught, and woollen clothing as well as
+rugs were made from the wool or hair of the two first. A feathered
+head-dress was worn on the head. Beds, stools and chairs were used,
+with carved legs resembling those of an ox. There were fire-places and
+fire-altars, and apparently chimneys also. Pottery was very plentiful,
+and the forms of the vases, bowls and dishes were manifold; there were
+special jars for honey, butter, oil and wine, which was probably made
+from dates, and one form of vase had a spout protruding from its side.
+Some of the vases had pointed feet, and stood on stands with crossed
+legs; others were flat-bottomed, and were set on square or rectangular
+frames of wood. The oil-jars--and probably others also--were sealed
+with clay, precisely as in early Egypt. Vases and dishes of stone were
+made in imitation of those of clay, and baskets were woven of reeds or
+formed of leather. Knives, drills, wedges and an instrument which looks
+like a saw were all known, while bows, arrows and daggers (but not
+swords nor, probably, spears) were employed in war. Time was reckoned
+in lunar months. Sacred cakes were offered to the gods, whose images
+were symbolized sometimes by a bearded human head with a feather crown,
+sometimes by a two-legged table of offerings on which stand two vases
+(of incense?). Demons were feared who had wings like a bird, and the
+foundation stones--or rather bricks--of a house were consecrated by
+certain objects that were deposited under them. A “year” was denoted by
+the branch of a tree, as in Egypt, and a “name” by a bird placed over
+the sacred table of offerings. The country was full of snakes and other
+creeping things, and wild beasts lurked in the jungle. The pictographs
+were read from left to right, and various expedients were devised for
+making them express ideas. Thus _mud_, “to beget,” was denoted by the
+picture of a bird dropping an egg. At other times the pictograph was
+used to express an idea, the pronunciation of which was the same as
+that of the object which it represented. The bent knee, for example,
+was used to express _dug_ or _tuk_, “to have,” since it represented a
+“knee,” which was called _dug_ in Sumerian.
+
+
+
+
+                              CHAPTER IV
+
+                THE RELATION OF BABYLONIAN TO EGYPTIAN
+                             CIVILIZATION
+
+
+In dealing with the question of origins, science is constantly
+confronted with the problem of unity or polygeneity. Has language one
+origin or many; are the various races of mankind traceable to one
+ancestor or to several? Do the older civilizations presuppose the same
+primeval starting-point, or were there independent centres of culture
+which grew up unknown to one another in different parts of the world?
+Under the influences of theology the belief long prevailed that they
+were all sprung from the same source; of late the tendency has been in
+an opposite direction. While the biologist has inclined to a belief in
+the unity of species, the anthropologist has seen reason to maintain
+the diversity of origin in culture.
+
+The two earliest civilizations with which we are acquainted were those
+of Babylonia and Egypt. To a certain extent the conditions under
+which they both arose were similar. They grew up alike on the banks
+of great rivers and in a warm, though not tropical, climate. They
+rested, moreover, on organized systems of agriculture, which again had
+been made possible by irrigation engineering. In Babylonia the first
+settlers had found a plain which was little more than a swamp, over
+which the swollen streams of the Euphrates and Tigris wandered at will
+during the annual period of inundation, and which needed engineering
+works on a large scale before it could be made habitable. The rivers
+had to be confined within their channels by means of embankments, and
+canals had to be cut in order to draw off the surplus supply of water
+and regulate its distribution to the land. While the swamp was thus
+being made possible for habitation, the population must have lived
+on the edge of the desert plateau which bordered it, and have there
+developed a civilization which not only produced the engineers and
+their science, but also the concentrated authority which enabled the
+science to be utilized.
+
+In Egypt it was the banks and delta of the Nile which took the place
+of the Babylonian plain. Recent discoveries have shown that in the
+prehistoric age, when the natives still lived in the desert and led a
+pastoral life, all this was a morass, the haunt of beasts of prey and
+venomous reptiles. But here again the swamp was rendered habitable by
+engineering works similar to those of primeval Babylonia. The swamp
+was transformed into fertile fields, the annual flood of the river was
+regulated, and an elaborate network of canals and embankments spread
+over the country. The pastoral nomads of the neolithic age became
+agriculturists, or were employed in constructing and repairing the
+works of irrigation, or in erecting monumental buildings for their
+rulers. There is evidence of the same centralized government, the
+same directing brain and organizing force that there is in primitive
+Babylonia.
+
+Is it possible that two systems of engineering science, so similar
+in their objects, their methods and their results, should have been
+invented independently in two different countries? There are scholars
+who answer in the negative. But the possibility cannot be denied,
+since an even more elaborate system of irrigation was invented in
+China without any suggestion, as far as we know, from outside. The
+geographical conditions of Babylonia and Egypt, moreover, resemble
+one another, and the question of draining the swamps and regulating
+the overflow of the rivers once raised, the answer to it seems fairly
+obvious. By itself, therefore, the fact that the cultures of ancient
+Babylonia and Egypt alike rested on a similar system of irrigation
+engineering would be no proof of their common origin.
+
+In some respects the problem which the Babylonian engineers were
+called upon to solve was more difficult than that which faced the
+Egyptians. The Nile is fed by the rains and melting snows of Abyssinia
+and Central Africa, and its annual inundation takes place in the later
+summer months. The Euphrates and Tigris flow from the north, from
+the highlands of Armenia, and are at their fullest in the spring.
+Their overflow accordingly comes just before the summer heats, when
+agriculture is difficult or impossible, whereas in Egypt the period
+of inundation ushers in the most favourable time of the year for the
+growth of the crops. What the Babylonian engineers had to do was not
+only to drain off the overflow, but also to store it for use at least
+six months later. With them it was a question of storage as well as of
+regulation.
+
+Those then, who believe that the engineering sciences of the
+Babylonians and Egyptians were no independent inventions are bound to
+see in Babylonia their original home. It would have been here that the
+great problems were solved, the practical application of which to the
+needs of Egypt would have been a comparatively simple matter. On the
+chronological side there would be no difficulties in such a view. Old
+as was the civilization of Egypt, the excavations in Babylonia have
+made it clear that the civilization of Babylonia was at least equally
+old. At Nippur the American excavators claim to have found inscribed
+remains which reach back for nearly ten thousand years, and though
+the data upon which this calculation is based may be disputable, it
+is certain that the earliest monuments met with are of immense age.
+And it must be remembered that they belong to a time when the early
+pictorial writing had already passed into a cursive script, and the
+plain of Babylonia had been a land of cultivated fields for unnumbered
+generations.
+
+But by itself, I repeat, the practical identity of engineering science
+in primeval Babylonia and Egypt is no proof that it had been learnt by
+the one from the other. If we are to fall back on the old belief which
+brought the civilized population of Egypt from the plain of Shinar,
+it must be for reasons which are supported by archæological facts. If
+such archæological facts exist, the parallel systems of irrigation
+engineering will be additional evidence; alone, they prove nothing.
+
+At the outset we are met by a fact which personally I find it hard to
+explain away. The hieroglyphic script of Egypt has little in common
+with the primitive pictorial characters of Babylonia. Objects and
+ideas like “the sun,” “man,” “number one,” will be represented by the
+same pictures or symbols all the world over, and consequently the fact
+that in both Babylonian and Egyptian writing the sun is denoted by a
+circle and the moon by a crescent is of no significance whatsoever.
+But when we turn to less obvious symbols there is comparatively little
+similarity between the two forms of script. The ideograph of “god,” for
+example, is a star in Babylonia, a stone axe and its shaft in Egypt;
+“life” is represented by a flowering reed in the one case, by a knotted
+girdle in the other. It is true that Professor Hommel and others have
+pointed to a few coincidences like those between the Egyptian symbol
+for “foreign land” and the Babylonian ideograph of “country,” or
+between the Egyptian and Babylonian signs for “city,” “place,” but
+such coincidences are rare.[92] As a rule, as soon as we leave the
+more obvious conventions of pictorial writing little or no connection
+can be traced between the pictorial characters of Egypt and those of
+Babylonia. As a whole the two graphic systems stand apart.
+
+Nevertheless I am bound to add that it is only as a whole that they
+do so. With all the general unlikeness there is a curious similarity
+in a few--a very few--instances which it is difficult to interpret as
+merely the result of accident. The round circle with lines inside it
+which denotes “a city” in Egyptian might be explained from the circular
+villages which still characterize Central Africa; but then how is it
+that the ideograph for “place” in the pictorial script of Babylonia had
+precisely the same form? That the word for “country” should be denoted
+in the Babylonian script by the picture of three mountain peaks may
+be due to the fact that to the Babylonian “country” and “mountain”
+were the same; but such an explanation fails us in the case of the
+Egyptian hieroglyph of “foreign land,” where the three peaks appear
+again, since the hieroglyph for “mountain” in Egyptian has but two.
+The picture of a seat, and a seat, too, of peculiar shape, represents
+“place” in Egyptian; in Babylonian the same picture represents “city,”
+thus inverting the ideographic signification of the picture which in
+Egyptian and Babylonian has respectively the meanings of “city” and
+“place.” Between the primitive Babylonian picture of a “ship” and
+the boats depicted in the prehistoric pottery of Egypt, again, the
+resemblance is very exact, and Professor Hommel has pointed out to me a
+curious likeness between the original form of the Babylonian ideograph
+for “a personal name” and the _ka_-sign with the Horus-hawk above
+it within which the names of the earliest Pharaohs are inscribed.[93]
+Indeed the learned and ingenious Munich Professor has made out a list
+of even more striking coincidences, where the characters agree not only
+in sense but also in the phonetic values attached to them.[94]

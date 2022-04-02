@@ -1,0 +1,104 @@
+{% extends "main.html" %}
+{% block content %}
+<div style="border: 2px solid red; background: yellow; width: 200px; text-align: center; float: right; clear: both;">
+  <h4 style="margin: 0.5em 0; line-height: 1.5em">
+    Уровень: {{state.level}}/1337
+    <br>
+    {{state.level_name}}
+    <hr>
+    L4MER L3VEL: {{"%03d" % state.lamerness}}%
+  </h4>
+</div>
+<p style="font-size: 30px; text-align: center"><nobr>-=\/\/3[_C()M#_T0_TH3_G4|\/|3=-</nobr></p>
+<h1>ВЫ ТОЧНО НЕ LAM3R?</h1>
+<hr><hr>
+<h3>Правила игры</h3>
+<p>Для прохождения на следующий уровень необходимо автоматизированно выполнить инструкцию.</p>
+<p>Вдобавок необходимо следить за своим уровнем l4m3r`ства.</p>
+<ul>
+    <li>Неверно выполненная инструкция приведёт увеличению уровня l4m3r`ства на 25%.</li>
+    <li>Уровень l4m3r`ства выше 75% приведёт к завершению игры и возвращению на уровень 1.</li>
+    <li>Уровень l4m3r`ства обнуляется при каждом пройденном уровне.</li>
+</ul>
+<hr><hr>
+<h3>ИНСТРУКЦИЯ</h3>
+<p>Выполните web hypertext request до текущего сервера по текущему домену со следующими параметрами:</p>
+
+{% if flag %}
+<p style="font-size: 96px; color: red">Поздравляю. Проверка на ламера пройдена. Ты c∞l'нчый(-@я)!! 8-D</p>
+<p style="color: #ff2; font-style: italic; font-size: 25px;">Можешь написать мне на электронку и сказать супер-секретный код который докажет типа ты НЕ ЛАМЕР и действительно круто прогаешь свои тачки под свои любые нужды. Потому что иначе этой страницы никак не достичь. Ещё раз круто поздравляю.</p>
+<p>Пароль назвать: <code>{{flag}}</code></p>
+{% else %}
+<table border=2 bordercolor="red">
+    <tr bgcolor="darkred">
+        <th colspan="2">Параметры HYPERTEXT на всю игру</th>
+    </tr>
+    <tr>
+        <th>Method</th>
+        <td>POST</td>
+    </tr>
+    <tr>
+        <th>Host</th>
+        <td>{{request.host}}</td>
+    </tr>
+    <tr>
+        <th>Content-Type</th>
+        <td>application/x-www-form-urlencoded</td>
+    </tr>
+    <tr bgcolor="darkred">
+        <th colspan="2">Поля в FORM DATA на всю игру</th>
+    </tr>
+    <tr bgcolor="darkred">
+        <th>название поля</th>
+        <th>содержимое</th>
+    </tr>
+    <tr>
+        <td> data </td>
+        <td>&lt;произвольное содержимое&gt;</td>
+    </tr>
+    <tr bgcolor="darkred">
+        <th colspan="2">Дополнительные ограничения на всю игру</th>
+    </tr>
+    <tr>
+        <th>Запрос не должен пресекаться фильтром HAX()RW4LL</th>
+        <th bgcolor="green">+</th>
+    </tr>
+    <tr bgcolor="darkred">
+        <th colspan="2">Конфигурация фильтра HAX()RW4LL для текущего уровня</th>
+    </tr>
+    <tr>
+        <td colspan="2"><pre>{{rules}}</pre></td>
+    </tr>
+</table>
+{% endif %}
+
+{% if debug %}
+<form method="post">
+    <input type="text" name="data">
+    <input type="submit">
+</form>
+{% endif %}
+
+<hr><hr>
+<h3>ФОРМАТ КОНФИГУРАЦИИ ФИЛЬТРА H4X()RW4LL</h3>
+
+<p>Конфигурация описывается S-выражением. В отличие от хипстерских смузи-джисонов (JSON) и бюрократических тупых XML это понятный легкодоступный контейнер для любых данных. [Прим. автора: Для труъ-haxxoringа подходят только они,csv, unix text file и форматы дампа ядра linux.... Не юзайте ничего иного,ибо фуфло.]</p>
+
+<p>Синтаксис S-выражения конфигурации описанный формальной грамматикой:</p>
+
+<pre>
+top      := combiner | rule
+
+combiner := ( [ ANY | ALL | NOT ]  [ combiner | rule ] ... )
+rule     := ( MUST-CONTAIN [ :REGEX regex | :SUBSTRING str ] )
+</pre>
+
+<p><b>Примечание:</b> В данной игре используются только combiner`ы типа ALL и rule`ы типа (MUST-CONTAIN :REGEX ...).</p>
+
+<p><b>Примечание 2: если вам нравится формат конфигурации HAX()RW4LL и вы хотите воспользоваться этим лучшим секретным WAF решением для прокектов любой организации и сложности, обратите внимание на предложение на главной странице сайта... О цене договоримся %)</p>
+
+<hr><br><hr><br><hr><br><hr>
+
+<h3>Secured by CACAPTCHA by L4IN3R</h3>
+
+{% endblock %}

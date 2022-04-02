@@ -1,0 +1,16 @@
+category:  ppc
+points:    250
+title:     CACAPTCHA
+author:    ksixty
+description: >
+    <p>CACAPTCHA <i>(Completely Automated Completely Automated Public Turing test to tell Computers and Humans Apart)</i> — полностью автоматизированный полностью автоматизированный публичный тест Тюринга для различения компьютеров и людей.</p>
+    <p>Совершенно понятно, что данный дважды полностью автоматизированный тест совсем не рассчитан на прохождение человеком. Сможете заставить свой компьютер пройти его?</p>
+generator: kyzylborda-docker-generator Dockerfile.generator ./generate.py
+attachments_path: attachments
+urls:
+  - https://cacaptcha.{hostname}
+daemon:
+    exec: kyzylborda-docker-compose-daemon
+    cwd: app
+    socket: ./cacaptcha.sock
+    socket_type: http
