@@ -13,7 +13,6 @@ SALT2_SIZE = 12
 
 def get_user_tokens(user_id):
     token = hmac.new(SECRET1, str(user_id).encode(), "sha256").hexdigest()[:SALT1_SIZE]
-    print(token, SECRET2)
     flag = PREFIX + hmac.new(SECRET2, token.encode(), "sha256").hexdigest()[:SALT2_SIZE]
 
     return token, flag
