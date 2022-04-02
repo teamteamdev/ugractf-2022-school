@@ -5,6 +5,16 @@ author:    kalan
 description: >
     <p>Как всегда, только один вопрос: <em>где это?</em></p>
     <p>При решении вас спросят одноразовые коды или, как их <em>тогда</em> было принято называть, шифры — у вас их есть 8 штук.</p>
+    <ul class="passive">
+        <li>{{ code0 }}</li>
+        <li>{{ code1 }}</li>
+        <li>{{ code2 }}</li>
+        <li>{{ code3 }}</li>
+        <li>{{ code4 }}</li>
+        <li>{{ code5 }}</li>
+        <li>{{ code6 }}</li>
+        <li>{{ code7 }}</li>
+    </ul>
 generator: ./generator.py
 daemon:
     exec: kyzylborda-docker-compose-daemon
