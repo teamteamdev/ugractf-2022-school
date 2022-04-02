@@ -11,5 +11,6 @@ description: >
     <p>— Открыть сайт, найти там урок и приложить файл «Реферат». Отправить. Ну всё, беги.</p>
     <p>— Спасибо! Неужели я наконец-то буду первый!</p>
     <p>Кроме этого, он <em>кое-что ещё</em> подслушал, но не ушами.</p>
-flags: ugra_cracking_be_in_the_air_tonight_f7ec913ae430
+flags:
+    - ugra_cracking_be_in_the_air_tonight_f7ec913ae430
 attachments_path: attachments
