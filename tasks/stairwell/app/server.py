@@ -12,7 +12,7 @@ import sys
 from jinja2 import FileSystemLoader
 
 BASE_DIR = os.path.dirname(__file__)
-STATE_DIR = sys.argv[1] if len(sys.argv) >= 2 else BASE_DIR
+STATE_DIR = "/state"
 STATIC_DIR = os.path.join(BASE_DIR, "static")
 
 PREFIX = "ugra_and_she_is_buying_one_to_heaven_"
