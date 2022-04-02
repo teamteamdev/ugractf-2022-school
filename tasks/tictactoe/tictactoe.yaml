@@ -8,4 +8,4 @@ description: >
 
   По крайней мере вы выпросили у знакомого лицензионный ключ от его копии. Сможете обойти защиту?
 generator: ./generator.py
-attachments: ./attachments
+attachments_path: ./attachments
