@@ -1,0 +1,55 @@
+name: tictactoe-online
+version: 0.1.0.0
+license: BSD3
+author: abbradar
+maintainer: ab@fmap.me
+
+dependencies:
+  - base >= 4.7
+  - bytestring
+  - utf8-string
+  - text
+  - containers
+  - unordered-containers
+  - hashable
+  - mtl
+  - conduit
+  - conduit-extra
+  - binary
+  - binary-conduit
+  - transformers
+  - async
+  - vector
+  - cryptonite
+  - exceptions
+  - haskeline
+
+default-extensions:
+  - DeriveGeneric
+  - DeriveAnyClass
+  - LambdaCase
+  - NamedFieldPuns
+  - RecordWildCards
+  - ScopedTypeVariables
+  - TupleSections
+  - OverloadedStrings
+
+ghc-options: -Wall -O2
+
+library:
+  source-dirs: src
+
+executables:
+  tictactoe-client:
+    main: Client.hs
+    source-dirs: client
+    dependencies:
+      - tictactoe-online
+    ghc-options: -threaded -rtsopts "-with-rtsopts=-N -T" -static
+
+  tictactoe-server:
+    main: Server.hs
+    source-dirs: server
+    dependencies:
+      - tictactoe-online
+    ghc-options: -threaded -rtsopts "-with-rtsopts=-N -T" -static
