@@ -147,4 +147,6 @@ cacaptcha § python solver.py
 
 Ура! В общем-то, не смотря на пугающие тексты на крутой странице крутого хакера о конечных автоматах и грамматиках, получилось всё не так уж и сложно -- и совсем не страшно.
 
+[Скрипт solver.py](https://github.com/teamteamdev/ugractf-2022-school/blob/master/tasks/cacaptcha/solver.py).
+
 Флаг: **ugra_did_you_know_that_captcha_is_a_trademark_32718c98452a0094**
