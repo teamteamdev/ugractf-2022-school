@@ -44,13 +44,13 @@ def find_solution(regexes: list[str], **_) -> str:
 
 
 if __name__ == "__main__":
-    SESSION = requests.Session()
-    STATE = parse_page(SESSION.get(URL).text)
+    session = requests.Session()
+    state = parse_page(session.get(URL).text)
     while True:
-        print(STATE['level'], end=' ', flush=True)
-        solution = find_solution(**STATE)
-        SESSION.post(URL, data={'data': solution})
-        STATE = parse_page(SESSION.get(URL).text)
-        if STATE['lamerness'] > 0 or STATE['flag']:
-            print(STATE)
+        print(state['level'], end=' ', flush=True)
+        solution = find_solution(**state)
+        session.post(URL, data={'data': solution})
+        state = parse_page(session.get(URL).text)
+        if state['lamerness'] > 0 or state['flag']:
+            print(state)
             break

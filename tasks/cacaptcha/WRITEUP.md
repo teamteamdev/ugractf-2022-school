@@ -127,22 +127,22 @@ def find_solution(regexes: list[str], **_) -> str:
 Осталось написать цикл, в котором будем засылать решения и получать новые данные:
 ```python
 if __name__ == "__main__":
-    SESSION = requests.Session()
-    STATE = parse_page(SESSION.get(URL).text)
+    session = requests.Session()
+    state = parse_page(session.get(URL).text)
     while True:
-        print(STATE['level'], end=' ', flush=True)  # показываем прогресс
-        solution = find_solution(**STATE)
-        SESSION.post(URL, data={'data': solution})  # засылаем ответ
-        STATE = parse_page(SESSION.get(URL).text)
-        if STATE['lamerness'] > 0 or STATE['flag']: # в нештатной ситуации останавливаемся и смотрим, что там пришло
-            print(STATE)
+        print(state['level'], end=' ', flush=True)  # показываем прогресс
+        solution = find_solution(**state)
+        session.post(URL, data={'data': solution})  # засылаем ответ
+        state = parse_page(session.get(URL).text)
+        if state['lamerness'] > 0 or state['flag']: # в нештатной ситуации останавливаемся и смотрим, что там пришло
+            print(state)
             break
 ```
 
 Запустим скрипт и посмотрим, какой же был флаг:
 ```
 cacaptcha § python solver.py
-1 2 3 4 5 6 7 8 9 10 11 12 13 [...] 1334 1335 1336 {'level': 1337, 'lamerness': 0, 'regexes': [], 'flag': 'ugra_did_you_know_that_captcha_is_a_trademark_004e14adda120bf7'}
+1 2 3 4 5 6 7 8 9 10 11 12 13 [...] 1334 1335 1336 {'level': 1337, 'lamerness': 0, 'regexes': [], 'flag': 'ugra_did_you_know_that_captcha_is_a_trademark_32718c98452a0094'}
 ```
 
 Ура! В общем-то, не смотря на пугающие тексты на крутой странице крутого хакера о конечных автоматах и грамматиках, получилось всё не так уж и сложно -- и совсем не страшно.
